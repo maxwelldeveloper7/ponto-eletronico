@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "ponto-eletronico"
+version = "0.1.0"
+description = "Sistema de Ponto Eletrônico para ser utilizado em hardwares com baixo poder computacional através de um terminal"
+authors = ["maxwelldeveloper7 <maxwellchaves1844@gmail.com>"]
+readme = "README.md"
+packages = [{include = "ponto_eletronico"}]
+
+[tool.poetry.dependencies]
+python = "^3.8.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
