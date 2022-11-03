@@ -1,5 +1,6 @@
 class Colaborador:
-    def __init__(self, matricula, cpf, pispasep, nome, cargo, admissao):
+    def __init__(self, matricula: str, cpf: str, pispasep: str, nome: str,
+                 cargo: str, admissao: str) -> None:
         self._matricula = matricula
         self._cpf = cpf
         self._pispasep = pispasep
@@ -24,7 +25,7 @@ class Colaborador:
         return self._nome.title()
 
     @property
-    def cargo(self) -> str:
+    def cargo(self):
         return self._cargo.title()
 
     @property
@@ -55,10 +56,9 @@ class Colaborador:
     def admissao(self, admissao):
         self._admissao = admissao
 
-    def __str__(self):
-        return f'Matricula: {self._matricula}\
-            nCPF: {self._cpf}\
-                nPIS/PASEP: {self._pispasep}\
-                    nNome: {self.nome}\
-                        nCargo: {self.cargo}\
-                            nAdmissao: {self._admissao}'
+    def __str__(self) -> str:
+        return 'Matrícula: {}\nCPF: {}\nPIS/PASEP: {}\nNome: {}\nCargo: {}\
+            \nAdmissão: {}'.format(
+            self._matricula, self._cpf, self._pispasep, self._nome,
+            self._cargo, self._admissao
+        )
