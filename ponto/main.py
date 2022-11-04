@@ -1,12 +1,13 @@
 from view import tela
 import datetime
+
 from model.colaborador import Colaborador as c
 
 
-titulo = "PONTO ELETRÔNICO | PREFEITURA MUNICIPAL DE NANUQUE-MG"
+titulo = "PONTO ELETRÔNICO | EMPRESA FICTÍCIA"
 
 
-def main():
+def run():
     opcao = 0
     while (True):
         tela.escreve_titulo(titulo)
@@ -92,5 +93,5 @@ def exibir_data_hora():
 
 
 if (__name__ == "__main__"):
-    main()
+    run()
     tela.limpar_console()
