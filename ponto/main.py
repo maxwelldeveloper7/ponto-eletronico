@@ -1,11 +1,11 @@
 import datetime
 
-from view import tela
+from view.tela import Tela
 from model.colaborador import Colaborador as c
 
 
 titulo = "PONTO ELETRÔNICO | EMPRESA FICTÍCIA"
-
+tela = Tela()
 
 def run():
     opcao = 0
@@ -94,4 +94,5 @@ def exibir_data_hora():
 
 if (__name__ == "__main__"):
     run()
-    tela.limpar_console()
+    # tela.limpar_terminal()
+    
