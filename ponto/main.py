@@ -1,6 +1,6 @@
-from view import tela
 import datetime
 
+from view import tela
 from model.colaborador import Colaborador as c
 
 
