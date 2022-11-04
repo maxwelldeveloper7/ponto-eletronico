@@ -59,6 +59,6 @@ class Colaborador:
     def __str__(self) -> str:
         return 'Matrícula: {}\nCPF: {}\nPIS/PASEP: {}\nNome: {}\nCargo: {}\
             \nAdmissão: {}'.format(
-            self._matricula, self._cpf, self._pispasep, self._nome,
-            self._cargo, self._admissao
+            self.matricula, self.cpf, self.pispasep, self.nome,
+            self.cargo, self.admissao
         )
