@@ -94,5 +94,5 @@ def exibir_data_hora():
 
 if (__name__ == "__main__"):
     run()
-    # tela.limpar_terminal()
+    tela.clear()
     
