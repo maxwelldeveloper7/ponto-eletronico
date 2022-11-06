@@ -1,16 +1,16 @@
 import datetime
 
-from view.tela import Tela
+from view.principal import TelaPrincipal
 from model.colaborador import Colaborador as c
 
 
 titulo = "PONTO ELETRÔNICO | EMPRESA FICTÍCIA"
-tela = Tela()
+principal = TelaPrincipal()
 
 def run():
     opcao = 0
     while (True):
-        tela.escreve_titulo(titulo)
+        principal.escreve_titulo(titulo)
         print("Menu\n")
         print("1 - Registrar")
         print("2 - Cadastros")
@@ -27,7 +27,7 @@ def run():
 def registrar():
     opcao = ""
     while (True):
-        tela.escreve_titulo(titulo)
+        principal.escreve_titulo(titulo)
         exibir_data_hora()
         matricula = int(input("Digite o número de sua matrícula: "))
         print(matricula)
@@ -41,7 +41,7 @@ def registrar():
 def cadastrar():
     opcao = 0
     while (True):
-        tela.escreve_titulo(titulo)
+        principal.escreve_titulo(titulo)
         print("Cadastros\n")
         print("1 - Colaboradores")
         print("2 - Horários")
@@ -56,7 +56,7 @@ def cadastrar():
 def colaboradores():
     opcao = 0
     while (True):
-        tela.escreve_titulo(titulo)
+        principal.escreve_titulo(titulo)
         print("Colaboradores\n")
         print("1 - Cadastrar")
         print("2 - Alterar")
@@ -71,7 +71,7 @@ def colaboradores():
 
 
 def cadastrar_colaborador():
-    tela.escreve_titulo(titulo)
+    principal.escreve_titulo(titulo)
     print("Novo colaborador\n")
     matricula = int(input("Matrícula: "))
     cpf = input("CPF: ")
@@ -94,5 +94,5 @@ def exibir_data_hora():
 
 if (__name__ == "__main__"):
     run()
-    tela.clear()
+    principal.clear()
     
