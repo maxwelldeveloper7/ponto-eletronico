@@ -83,7 +83,7 @@ def cadastrar_colaborador():
     print()
     print(colaborador)
     print()
-    input("tecle qualquer tecla para voltar")
+    input("pressione qualquer tecla para voltar")
 
 
 def exibir_data_hora():
