@@ -5,7 +5,7 @@ class Tela():
     def __init__(self) -> None:
         ...
 
-    def clear() -> None:
+    def clear(self) -> None:
         os.system('clear')
         command: str = 'clear'
         if os.name in ('nt', 'dos'):
