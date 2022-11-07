@@ -1,6 +1,6 @@
 import datetime
 
-from ponto.view.tela_principal import TelaPrincipal
+from view.tela_principal import TelaPrincipal
 from model.colaborador import Colaborador
 
 
