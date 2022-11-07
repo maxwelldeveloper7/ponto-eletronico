@@ -10,7 +10,7 @@ principal = TelaPrincipal()
 def run():
     opcao = 0
     while (True):
-        principal.escreve_titulo(titulo)
+        principal.escreve_titulo()
         print("Menu\n")
         print("1 - Registrar")
         print("2 - Cadastros")
@@ -27,7 +27,7 @@ def run():
 def registrar():
     opcao = ""
     while (True):
-        principal.escreve_titulo(titulo)
+        principal.escreve_titulo()
         exibir_data_hora()
         matricula = int(input("Digite o número de sua matrícula: "))
         print(matricula)
@@ -41,7 +41,7 @@ def registrar():
 def cadastrar():
     opcao = 0
     while (True):
-        principal.escreve_titulo(titulo)
+        principal.escreve_titulo()
         print("Cadastros\n")
         print("1 - Colaboradores")
         print("2 - Horários")
@@ -56,7 +56,7 @@ def cadastrar():
 def colaboradores():
     opcao = 0
     while (True):
-        principal.escreve_titulo(titulo)
+        principal.escreve_titulo()
         print("Colaboradores\n")
         print("1 - Cadastrar")
         print("2 - Alterar")
@@ -71,7 +71,7 @@ def colaboradores():
 
 
 def cadastrar_colaborador():
-    principal.escreve_titulo(titulo)
+    principal.escreve_titulo()
     print("Novo colaborador\n")
     matricula = int(input("Matrícula: "))
     cpf = input("CPF: ")
