@@ -25,9 +25,9 @@ class TelaColaboradores(Tela):
     def cadastro(self) -> None:
         self.escreve_titulo()
         print("Novo colaborador\n")
-        matricula = int(input("Matrícula: "))
+        matricula = input("Matrícula: ")
         cpf = input("CPF: ")
-        pis_pasep = int(input("PIS/PASEP: "))
+        pis_pasep = input("PIS/PASEP: ")
         nome = input("Nome Completo: ")
         cargo = input("Cargo: ")
         data_admissao = input("Data de Admissão(dd/mm/aaaa): ")
