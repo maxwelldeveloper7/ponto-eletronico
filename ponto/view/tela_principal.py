@@ -8,7 +8,6 @@ class TelaPrincipal(Tela):
     def __init__(self) -> None:
         ...
 
-
     def exibe_menu(self):
         opcao = 0
         while (True):
@@ -25,7 +24,6 @@ class TelaPrincipal(Tela):
             elif opcao == 3:
                 break
 
-
     def registrar(self):
         opcao = ""
         while (True):
@@ -38,7 +36,6 @@ class TelaPrincipal(Tela):
                 ).lower()
             if opcao != "s":
                 break
-
 
     def cadastrar(self):
         opcao = 0
@@ -53,7 +50,6 @@ class TelaPrincipal(Tela):
                 self.colaboradores()
             elif opcao == 3:
                 break
-
 
     def colaboradores(self):
         opcao = 0
@@ -71,7 +67,6 @@ class TelaPrincipal(Tela):
             elif opcao == 6:
                 break
 
-
     def cadastrar_colaborador(self):
         self.escreve_titulo()
         print("Novo colaborador\n")
@@ -81,12 +76,12 @@ class TelaPrincipal(Tela):
         nome = input("Nome Completo: ")
         cargo = input("Cargo: ")
         data_admissao = input("Data de Admissão(dd/mm/aaaa): ")
-        colaborador = Colaborador(matricula, cpf, pis_pasep, nome, cargo, data_admissao)
+        colaborador = Colaborador(matricula, cpf, pis_pasep, nome, cargo,
+                                  data_admissao)
         print()
         print(colaborador)
         print()
         input("pressione qualquer tecla para voltar")
-
 
     def exibir_data_hora(self):
         data = datetime.datetime.now()

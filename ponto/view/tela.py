@@ -14,7 +14,6 @@ class Tela():
             command = 'cls'
         os.system(command)
 
-
     def escreve_titulo(self) -> str:
         self.clear()
         largura_titulo: int = int(len(TITULO_PRINCIPAL)) + 4  # pega a largura do titulo
