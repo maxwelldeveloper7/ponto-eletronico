@@ -1,7 +1,7 @@
 import datetime
 
-from view.principal import TelaPrincipal
-from model.colaborador import Colaborador as c
+from ponto.view.tela_principal import TelaPrincipal
+from model.colaborador import Colaborador
 
 
 titulo = "PONTO ELETRÔNICO | EMPRESA FICTÍCIA"
@@ -79,7 +79,7 @@ def cadastrar_colaborador():
     nome = input("Nome Completo: ")
     cargo = input("Cargo: ")
     data_admissao = input("Data de Admissão(dd/mm/aaaa): ")
-    colaborador = c(matricula, cpf, pis_pasep, nome, cargo, data_admissao)
+    colaborador = Colaborador(matricula, cpf, pis_pasep, nome, cargo, data_admissao)
     print()
     print(colaborador)
     print()
