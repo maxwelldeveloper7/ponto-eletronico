@@ -6,7 +6,7 @@ class TelaColaboradores(Tela):
     def __init__(self) -> None:
         super().__init__()
 
-    def exibir_menu(self):
+    def exibir_menu(self) -> None:
         opcao = 0
         while (True):
             self.escreve_titulo()
@@ -22,7 +22,7 @@ class TelaColaboradores(Tela):
             elif opcao == 6:
                 break
 
-    def cadastro(self):
+    def cadastro(self) -> None:
         self.escreve_titulo()
         print("Novo colaborador\n")
         matricula = int(input("Matrícula: "))
