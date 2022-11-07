@@ -1,12 +1,12 @@
 import datetime
 
 from view.tela import Tela
-from model.colaborador import Colaborador
+from view.tela_colaboradores import TelaColaboradores
 
 
 class TelaPrincipal(Tela):
     def __init__(self) -> None:
-        ...
+        super().__init__()
 
     def exibe_menu(self):
         opcao = 0
@@ -47,41 +47,10 @@ class TelaPrincipal(Tela):
             print("3 - Retornar\n")
             opcao = int(input("Digite uma opção: "))
             if opcao == 1:
-                self.colaboradores()
+                tela_colaboradores = TelaColaboradores()
+                tela_colaboradores.exibir_menu()
             elif opcao == 3:
                 break
-
-    def colaboradores(self):
-        opcao = 0
-        while (True):
-            self.escreve_titulo()
-            print("Colaboradores\n")
-            print("1 - Cadastrar")
-            print("2 - Alterar")
-            print("3 - Inativar")
-            print("5 - Listar")
-            print("6 - Retornar\n")
-            opcao = int(input("Digite uma opção: "))
-            if opcao == 1:
-                self.cadastrar_colaborador()
-            elif opcao == 6:
-                break
-
-    def cadastrar_colaborador(self):
-        self.escreve_titulo()
-        print("Novo colaborador\n")
-        matricula = int(input("Matrícula: "))
-        cpf = input("CPF: ")
-        pis_pasep = int(input("PIS/PASEP: "))
-        nome = input("Nome Completo: ")
-        cargo = input("Cargo: ")
-        data_admissao = input("Data de Admissão(dd/mm/aaaa): ")
-        colaborador = Colaborador(matricula, cpf, pis_pasep, nome, cargo,
-                                  data_admissao)
-        print()
-        print(colaborador)
-        print()
-        input("pressione qualquer tecla para voltar")
 
     def exibir_data_hora(self):
         data = datetime.datetime.now()
