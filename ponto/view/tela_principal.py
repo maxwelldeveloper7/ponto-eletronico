@@ -1,6 +1,7 @@
 import datetime
 
 from view.tela import Tela
+from view.tela_cadastros import TelaCadastros
 from view.tela_colaboradores import TelaColaboradores
 
 
@@ -20,7 +21,8 @@ class TelaPrincipal(Tela):
             if opcao == 1:
                 self.registrar()
             elif opcao == 2:
-                self.cadastrar()
+                tela_cadastros = TelaCadastros()
+                tela_cadastros.exibir_menu()
             elif opcao == 3:
                 break
 
@@ -36,22 +38,7 @@ class TelaPrincipal(Tela):
                 ).lower()
             if opcao != "s":
                 break
-
-    def cadastrar(self):
-        opcao = 0
-        while (True):
-            self.escreve_titulo()
-            print("Cadastros\n")
-            print("1 - Colaboradores")
-            print("2 - Horários")
-            print("3 - Retornar\n")
-            opcao = int(input("Digite uma opção: "))
-            if opcao == 1:
-                tela_colaboradores = TelaColaboradores()
-                tela_colaboradores.exibir_menu()
-            elif opcao == 3:
-                break
-
+    
     def exibir_data_hora(self):
         data = datetime.datetime.now()
         data_texto = data.strftime('Data e Hora: %d/%m/%Y - %H:%M')
