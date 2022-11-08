@@ -1,5 +1,4 @@
 from view.tela_principal import TelaPrincipal
-from model.colaborador import Colaborador
 
 
 principal = TelaPrincipal()
