@@ -41,7 +41,7 @@ class Colaborador:
         self._cpf = cpf
 
     @pispasep.setter
-    def cpf(self, pispasep):
+    def pispasep(self, pispasep):
         self._pispasep = pispasep
 
     @nome.setter
