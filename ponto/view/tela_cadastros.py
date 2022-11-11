@@ -22,12 +22,12 @@ class TelaCadastros(Tela):
             entrada: str = input(f"{mensagem}Digite uma opção: ")
             # O valor deve ser entre 1 e 3 inclusive, e deve conter apenas 
             # um caractere
-            padrao = "[1-3]"
-            opcao_valida = re.search(padrao, entrada) and len(entrada) == 1
+            padrao: str = "[1-3]"
+            opcao_valida: bool = re.search(padrao, entrada) and len(entrada) == 1
             # Verifica se a opção é válida
             if opcao_valida:
                 # reinicia o conteúda da mensagem
-                mensagem = ""
+                mensagem: str = ""
                 opcao = int(entrada)
                 if opcao == 1:
                     tela_colaboradores = TelaColaboradores()
