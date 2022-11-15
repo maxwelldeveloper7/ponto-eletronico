@@ -1,3 +1,5 @@
+import re
+
 from view.tela import Tela
 from model.colaborador import Colaborador
 
@@ -7,20 +9,40 @@ class TelaColaboradores(Tela):
         super().__init__()
 
     def exibir_menu(self) -> None:
-        opcao = 0
+        opcao: int = 0
+        mensagem: str = ""
         while (True):
+            # Menu
             self.escreve_titulo()
             print("Colaboradores\n")
             print("1 - Cadastrar")
             print("2 - Alterar")
             print("3 - Inativar")
-            print("5 - Listar")
-            print("6 - Retornar\n")
-            opcao = int(input("Digite uma opção: "))
-            if opcao == 1:
-                self.cadastro()
-            elif opcao == 6:
-                break
+            print("4 - Listar")
+            print("5 - Retornar\n")
+            # Tratamento do que é informado pelo teclado utilizando regex
+            entrada: str = input(f"{mensagem}Digite uma opção: ")
+            # O valor de ser entre 1 a 5 inclusive, e deve conter apenas
+            # um caractere
+            padrao: str = "[1-5]"
+            opcao_valida: bool = re.search(padrao, entrada) and len(
+                entrada) == 1
+            # Verifica se a opção é válida
+            if opcao_valida:
+                mensagem = ""
+                opcao = int(entrada)
+                if opcao == 1:
+                    self.cadastro()
+                elif opcao == 2:
+                    continue
+                elif opcao == 3:
+                    continue
+                elif opcao == 4:
+                    continue
+                elif opcao == 5:
+                    break
+            else:
+                mensagem = "Opção inválida!!!\n"
 
     def cadastro(self) -> None:
         self.escreve_titulo()
