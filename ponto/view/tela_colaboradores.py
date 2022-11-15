@@ -47,14 +47,14 @@ class TelaColaboradores(Tela):
     def cadastro(self) -> None:
         self.escreve_titulo()
         print("Novo colaborador\n")
-        matricula = input("Matrícula: ")
-        cpf = input("CPF: ")
-        pis_pasep = input("PIS/PASEP: ")
-        nome = input("Nome Completo: ")
-        cargo = input("Cargo: ")
-        data_admissao = input("Data de Admissão(dd/mm/aaaa): ")
-        colaborador = Colaborador(matricula, cpf, pis_pasep, nome, cargo,
-                                  data_admissao)
+        matricula: str = input("Matrícula: ")
+        cpf: str = input("CPF: ")
+        pis_pasep: str = input("PIS/PASEP: ")
+        nome: str = input("Nome Completo: ")
+        cargo: str = input("Cargo: ")
+        data_admissao: str = input("Data de Admissão(dd/mm/aaaa): ")
+        colaborador: Colaborador = Colaborador(matricula, cpf, pis_pasep, nome,
+                                               cargo, data_admissao)
         print()
-        print(colaborador,"\n")
+        print(colaborador, "\n")
         input("pressione qualquer tecla para voltar")
