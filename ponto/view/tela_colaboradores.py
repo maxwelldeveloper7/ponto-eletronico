@@ -1,7 +1,8 @@
 import re
+from validate_docbr import CPF
 
-from view.tela import Tela
 from model.colaborador import Colaborador
+from view.tela import Tela
 
 
 class TelaColaboradores(Tela):
@@ -76,7 +77,20 @@ class TelaColaboradores(Tela):
             return None
 
     def recebe_cpf(self) -> str:
+        """
+            Recebe um CPF pelo teclado e verifica se possui 11 dígitos e se é
+            válido.
+        Returns:
+            str: CPF válido ou None caso seja inválido
+        """        
         cpf: str = input("CPF: ")
-        padrao: str = "[0-9]{11}"
-        resposta = re.search(padrao, cpf)
-        return resposta
+        if len(cpf) == 11:
+            padrao: str = "[0-9]{11}"
+            documento = re.search(padrao, cpf).group()
+            validador = CPF()
+            if validador.validate(documento):
+                return documento
+            else:
+                return None
+        else:
+            return None
