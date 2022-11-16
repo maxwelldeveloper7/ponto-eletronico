@@ -48,7 +48,7 @@ class TelaColaboradores(Tela):
     def cadastro(self) -> None:
         self.escreve_titulo()
         print("Novo colaborador\n")
-        matricula = self.recebe_matricula()
+        matricula: str = self.recebe_matricula()
         cpf: str = self.recebe_cpf()
         print(matricula, cpf)
         input("pressione qualquer tecla para voltar")
@@ -64,6 +64,11 @@ class TelaColaboradores(Tela):
         # input("pressione qualquer tecla para voltar")
 
     def recebe_matricula(self) -> str:
+        """ Recebe um número de matrícula pelo teclado e verifica se possui
+            apenas digitos. Caso possua caracteres alfa os remove.
+        Returns:
+            str: Número de matrícula. apenas dígitos
+        """
         matricula: str = input("Matrícula: ")
         padrao: str = "[0-9]{1,6}"
         matricula_valida: bool = re.findall(padrao, matricula)
@@ -77,8 +82,7 @@ class TelaColaboradores(Tela):
             return None
 
     def recebe_cpf(self) -> str:
-        """
-            Recebe um CPF pelo teclado e verifica se possui 11 dígitos e se é
+        """ Recebe um CPF pelo teclado e verifica se possui 11 dígitos e se é
             válido.
         Returns:
             str: CPF válido ou None caso seja inválido
