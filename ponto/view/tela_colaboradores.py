@@ -1,5 +1,5 @@
 import re
-from validate_docbr import CPF
+from validate_docbr import CPF, PIS
 
 from model.colaborador import Colaborador
 from view.tela import Tela
@@ -50,9 +50,9 @@ class TelaColaboradores(Tela):
         print("Novo colaborador\n")
         matricula: str = self.recebe_matricula()
         cpf: str = self.recebe_cpf()
-        print(matricula, cpf)
+        pis_pasep: str = self.recebe_pis_pasep()
+        print(matricula, cpf, pis_pasep)
         input("pressione qualquer tecla para voltar")
-        # cpf: str = input("CPF: ")
         # pis_pasep: str = input("PIS/PASEP: ")
         # nome: str = input("Nome Completo: ")
         # cargo: str = input("Cargo: ")
@@ -92,6 +92,24 @@ class TelaColaboradores(Tela):
             padrao: str = "[0-9]{11}"
             documento = re.search(padrao, cpf).group()
             validador = CPF()
+            if validador.validate(documento):
+                return documento
+            else:
+                return None
+        else:
+            return None
+
+    def recebe_pis_pasep(self) -> str:
+        """ Recebe um PIS/PASEP pelo teclado e verifica se possui 11 dígitos
+            e se é válido.
+        Returns:
+            str: PIS/PASEP válido ou None caso seja inválido
+        """        
+        pis_pasep: str = input("PIS/PASEP: ")
+        if len(pis_pasep) == 11:
+            padrao: str = "[0-9]{11}"
+            documento = re.search(padrao, pis_pasep).group()
+            validador = PIS()
             if validador.validate(documento):
                 return documento
             else:
