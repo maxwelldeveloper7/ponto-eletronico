@@ -48,7 +48,8 @@ class TelaColaboradores(Tela):
         self.escreve_titulo()
         print("Novo colaborador\n")
         matricula = self.recebe_matricula()
-        print(matricula)
+        cpf: str = self.recebe_cpf()
+        print(matricula, cpf)
         input("pressione qualquer tecla para voltar")
         # cpf: str = input("CPF: ")
         # pis_pasep: str = input("PIS/PASEP: ")
@@ -73,3 +74,9 @@ class TelaColaboradores(Tela):
             return str("{:06d}".format(resposta_formatada))
         else:
             return None
+
+    def recebe_cpf(self) -> str:
+        cpf: str = input("CPF: ")
+        padrao: str = "[0-9]{11}"
+        resposta = re.search(padrao, cpf)
+        return resposta
