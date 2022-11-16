@@ -47,14 +47,29 @@ class TelaColaboradores(Tela):
     def cadastro(self) -> None:
         self.escreve_titulo()
         print("Novo colaborador\n")
-        matricula: str = input("Matrícula: ")
-        cpf: str = input("CPF: ")
-        pis_pasep: str = input("PIS/PASEP: ")
-        nome: str = input("Nome Completo: ")
-        cargo: str = input("Cargo: ")
-        data_admissao: str = input("Data de Admissão(dd/mm/aaaa): ")
-        colaborador: Colaborador = Colaborador(matricula, cpf, pis_pasep, nome,
-                                               cargo, data_admissao)
-        print()
-        print(colaborador, "\n")
+        matricula = self.recebe_matricula()
+        print(matricula)
         input("pressione qualquer tecla para voltar")
+        # cpf: str = input("CPF: ")
+        # pis_pasep: str = input("PIS/PASEP: ")
+        # nome: str = input("Nome Completo: ")
+        # cargo: str = input("Cargo: ")
+        # data_admissao: str = input("Data de Admissão(dd/mm/aaaa): ")
+        # colaborador: Colaborador = Colaborador(matricula, cpf, pis_pasep, nome,
+        #                                        cargo, data_admissao)
+        # print()
+        # print(colaborador, "\n")
+        # input("pressione qualquer tecla para voltar")
+
+    def recebe_matricula(self) -> str:
+        matricula: str = input("Matrícula: ")
+        padrao: str = "[0-9]{1,6}"
+        matricula_valida: bool = re.findall(padrao, matricula)
+        if matricula_valida:
+            resposta = re.search(padrao, matricula)
+            # Resposta da busca convertida em inteiro para formatar matrícula
+            # com zeros a esquerda
+            resposta_formatada = int(resposta.group())
+            return str("{:06d}".format(resposta_formatada))
+        else:
+            return None
