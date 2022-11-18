@@ -48,14 +48,14 @@ class TelaColaboradores(Tela):
     def cadastro(self) -> None:
         self.escreve_titulo()
         print("Novo colaborador\n")
-        # matricula: str = self.recebe_matricula()
-        # cpf: str = self.recebe_cpf()
-        # pis_pasep: str = self.recebe_pis_pasep()
+        matricula: str = self.recebe_matricula()
+        cpf: str = self.recebe_cpf()
+        pis_pasep: str = self.recebe_pis_pasep()
         nome: str = self.recebe_nome()
-        # print(matricula, cpf, pis_pasep, nome)
-        print(nome)
+        cargo: str = self.recebe_cargo()
+        print(matricula, cpf, pis_pasep, nome, cargo)
         input("pressione qualquer tecla para voltar")
-        # cargo: str = input("Cargo: ")
+        
         # data_admissao: str = input("Data de Admissão(dd/mm/aaaa): ")
         # colaborador: Colaborador = Colaborador(matricula, cpf, pis_pasep, nome,
         #                                        cargo, data_admissao)
@@ -131,4 +131,16 @@ class TelaColaboradores(Tela):
         else:
             return None
 
-    
+    def recebe_cargo(self) -> str:
+        """Remove dígitos do Cargo
+
+        Returns:
+            str: Cargo
+        """
+        entrada: str = input("Cargo: ")
+        cargo: str = ''.join([i for i in entrada if not i.isdigit()])
+        cargo = cargo.lower()
+        if len(cargo) > 1:
+            return cargo
+        else:
+            return None
