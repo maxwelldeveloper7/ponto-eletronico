@@ -53,7 +53,8 @@ class TelaColaboradores(Tela):
         pis_pasep: str = self.recebe_pis_pasep()
         nome: str = self.recebe_nome()
         cargo: str = self.recebe_cargo()
-        print(matricula, cpf, pis_pasep, nome, cargo)
+        data: str = self.recebe_data()
+        print(matricula, cpf, pis_pasep, nome, cargo, data)
         input("pressione qualquer tecla para voltar")
         
         # data_admissao: str = input("Data de Admissão(dd/mm/aaaa): ")
@@ -144,3 +145,52 @@ class TelaColaboradores(Tela):
             return cargo
         else:
             return None
+
+    def recebe_data(self) -> str:
+        """Recebe uma data no formato ddMMaaa ou dd/MM/aaaa
+
+        Returns:
+            str: retorna uma data no formato dd/MM/aaaa
+        """
+        dia: int = None
+        mes: int = None
+        ano: int = None
+        print("Data de admissão(dd/MM/AAAA)")
+        # tenta receber os dados no formato inteiro
+        try:            
+            dia: int = int(input("Dia: "))
+            try:            
+                mes: int = int(input("Mês: "))
+                try:            
+                    ano: int = int(input("Ano: "))
+                except:
+                    print("tipo ano inválido")
+                    return None
+            except:
+                print("tipo mês inválido")
+                return None
+        except:
+            print("tipo dia inválido")
+            return None
+        # verifica se o dia, mês e ano informádo são válidos
+        data_valida: bool = False
+        if ano in range(1900,2090):
+            if mes in range(1,13):
+                if dia in range(1,32):
+                    # verifica de a data é válida
+                    ...
+                else:
+                    print("dia inválido")
+                    return None
+            else:
+                print("mês inválido")
+                return None
+        else:
+            print("ano inválido")
+            return None
+        if data_valida:
+            return f"{dia}/{mes}/{ano}"
+        else:
+            return None
+        
+        
