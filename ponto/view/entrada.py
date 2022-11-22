@@ -3,7 +3,7 @@ from validate_docbr import CPF, PIS
 
 
 class Entrada():    
-    def recebe_matricula(self, label: str) -> str:
+    def recebe_matricula(label: str) -> str:
         """ Recebe um número de matrícula pelo teclado e verifica se possui
             apenas digitos. Caso possua caracteres alfa os remove.
         
@@ -25,7 +25,7 @@ class Entrada():
         else:
             return None
 
-    def recebe_cpf(self, label: str) -> str:
+    def recebe_cpf(label: str) -> str:
         """Recebe um CPF pelo teclado e verifica se possui 11 dígitos e se é
             válido.
 
@@ -49,7 +49,7 @@ class Entrada():
         else:
             return None
 
-    def recebe_pis_pasep(self, label: str) -> str:
+    def recebe_pis_pasep(label: str) -> str:
         """ Recebe um PIS/PASEP pelo teclado e verifica se possui 11 dígitos
             e se é válido.
             
@@ -71,7 +71,7 @@ class Entrada():
         else:
             return None
 
-    def recebe_nome(self, label: str) -> str:
+    def recebe_texto(label: str) -> str:
         """Remove dígitos do nome completo
 
         Args:
@@ -88,7 +88,7 @@ class Entrada():
         else:
             return None    
 
-    def recebe_data(self, label: str) -> str:
+    def recebe_data(label: str) -> str:
         """Recebe uma data no formato ddMMaaa ou dd/MM/aaaa
 
         Args:
@@ -149,6 +149,6 @@ class Entrada():
             print("ano inválido")
             return None
         if data_valida:
-            return f"{dia}/{mes}/{ano}"
+            return "{:02d}/{:02d}/{:04d}".format(dia, mes, ano)
         else:
             return None
