@@ -12,4 +12,15 @@ class TestClass:
         resultado = entrada_teste.recebe_matricula()
         # Then - desfecho
         assert resultado == esperado
+
+    def test_quando_matricula_for_vazia_deve_retornar_None(self):
+        # Given - contexto
+        monkeypatch = MonkeyPatch()
+        monkeypatch.setattr('builtins.input', lambda _: "")
+        esperado = None
+        # When - ação
+        entrada_teste = Entrada()
+        resultado = entrada_teste.recebe_matricula()
+        # Then - desfecho
+        assert resultado == esperado
         
