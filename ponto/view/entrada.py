@@ -14,7 +14,7 @@ class Entrada:
             str: Número de matrícula. apenas dígitos
         """
         matricula: str = input(label)
-        padrao: str = "[0-9]{1,6}"
+        padrao: str = "[1-9]{1,6}"
         matricula_valida: bool = re.findall(padrao, matricula)
         if matricula_valida:
             resposta = re.search(padrao, matricula)
