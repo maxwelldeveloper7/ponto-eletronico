@@ -2,7 +2,7 @@ import re
 from validate_docbr import CPF, PIS
 
 
-class Entrada():    
+class Entrada:    
     def recebe_matricula(label: str) -> str:
         """ Recebe um número de matrícula pelo teclado e verifica se possui
             apenas digitos. Caso possua caracteres alfa os remove.
@@ -35,8 +35,7 @@ class Entrada():
         Returns:
             str: CPF válido ou None caso seja inválido
         """
-        
-              
+             
         cpf: str = input(label)
         if len(cpf) == 11:
             padrao: str = "[0-9]{11}"
