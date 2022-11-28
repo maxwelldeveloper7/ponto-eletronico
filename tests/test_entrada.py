@@ -24,11 +24,11 @@ class TestRecebeMatricula:
         # Then - desfecho
         assert resultado == esperado
 
-    def test_quando_matricula_for_9999999_deve_retornar_None(self):
+    def test_quando_matricula_for_9999999_deve_retornar_999999(self):
         # Given - contexto
         monkeypatch = MonkeyPatch()
         monkeypatch.setattr('builtins.input', lambda _: "9999999")
-        esperado = "None"
+        esperado = "999999"
         # When - ação
         entrada_teste = Entrada()
         resultado = entrada_teste.recebe_matricula()
@@ -46,11 +46,11 @@ class TestRecebeMatricula:
         # Then - desfecho
         assert resultado == esperado
 
-    def test_quando_matricula_for_0000001_deve_retornar_None(self):
+    def test_quando_matricula_for_0000001_deve_retornar_000001(self):
         # Given - contexto
         monkeypatch = MonkeyPatch()
         monkeypatch.setattr('builtins.input', lambda _: "0000001")
-        esperado = None
+        esperado = "000001"
         # When - ação
         entrada_teste = Entrada()
         resultado = entrada_teste.recebe_matricula()
