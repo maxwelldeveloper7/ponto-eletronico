@@ -14,14 +14,13 @@ class Entrada:
             str: Número de matrícula. apenas dígitos
         """
         matricula: str = input(label)
-        padrao: str = "[1-9]{1,6}"
+        padrao: str = "[0-9]{1,6}"
         matricula_valida: bool = re.findall(padrao, matricula)
         if matricula_valida:
-            resposta = re.search(padrao, matricula)
+            resposta = re.search(padrao, matricula)            
             # Resposta da busca convertida em inteiro para formatar matrícula
-            # com zeros a esquerda
-            resposta_formatada = int(resposta.group())
-            return str("{:06d}".format(resposta_formatada))
+            # com zeros a esquerda            
+            return str("{:06d}".format(int(resposta.group())))
         else:
             return None
 
