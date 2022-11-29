@@ -9,6 +9,7 @@ packages = [{include = "ponto_eletronico"}]
 [tool.poetry.dependencies]
 python = "^3.8.10"
 validate-docbr = "^1.10.0"
+pytest-cov = "^4.0.0"
 
 
 [tool.poetry.group.dev.dependencies]
