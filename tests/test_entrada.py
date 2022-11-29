@@ -1,5 +1,5 @@
 from ponto.view.entrada import Entrada
-from pytest import MonkeyPatch
+from pytest import MonkeyPatch, mark
 import pytest
 
 class TestRecebeMatricula:
@@ -24,6 +24,7 @@ class TestRecebeMatricula:
             # Then - desfecho
             assert resultado
 
+    @mark.matricula_0
     def test_quando_matricula_for_0_deve_retornar_None(self):
         # Given - contexto
         monkeypatch = MonkeyPatch()
@@ -57,6 +58,7 @@ class TestRecebeMatricula:
         # Then - desfecho
         assert resultado == esperado
 
+    @mark.skip
     def test_quando_matricula_for_0000001_deve_retornar_000001(self):
         # Given - contexto
         monkeypatch = MonkeyPatch()
