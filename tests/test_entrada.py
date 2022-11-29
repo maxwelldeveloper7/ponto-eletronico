@@ -1,5 +1,6 @@
 from ponto.view.entrada import Entrada
 from pytest import MonkeyPatch
+import pytest
 
 class TestRecebeMatricula:
     def test_quando_matricula_for_vazia_deve_retornar_None(self):
@@ -12,6 +13,16 @@ class TestRecebeMatricula:
         resultado = entrada_teste.recebe_matricula()
         # Then - desfecho
         assert resultado == esperado
+
+    def test_quando_matricula_for_vazia_deve_retornar_exception(self):        
+        with pytest.raises(Exception):
+            monkeypatch = MonkeyPatch()
+            monkeypatch.setattr('builtins.input', lambda _: "")# Given - contexto            
+            # When - ação
+            entrada_teste = Entrada()
+            resultado = entrada_teste.recebe_matricula()
+            # Then - desfecho
+            assert resultado
 
     def test_quando_matricula_for_0_deve_retornar_None(self):
         # Given - contexto
@@ -89,3 +100,6 @@ class TestRecebeMatricula:
         resultado = entrada_teste.recebe_matricula()
         # Then - desfecho
         assert resultado == esperado
+
+class TestRecebeCpf:
+    ...
