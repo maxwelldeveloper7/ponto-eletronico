@@ -3,10 +3,7 @@ import os
 from view.constantes import TITULO_PRINCIPAL
 
 
-class Tela():
-    def __init__(self) -> None:
-        ...
-
+class Tela:
     def clear(self) -> None:
         os.system('clear')
         command: str = 'clear'
