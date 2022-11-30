@@ -4,6 +4,16 @@ source = ./ponto
 [report]
 exclude_lines = 
     def __str__
-
+    principal
+    __name__ == "__main__"
+    TITULO_PRINCIPAL
+    import
+    def clear
+    def escreve_titulo
+    class Tela:
+    class TelaCadastros
+    class TelaColaboradores
+    class TelaPrincipal
+    class TelaRegistros
 [html]
 directory = coverage_relatorio_html
