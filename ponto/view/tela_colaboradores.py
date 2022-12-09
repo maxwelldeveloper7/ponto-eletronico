@@ -2,7 +2,6 @@ import re
 
 from model.colaborador import Colaborador
 from view.tela import Tela
-from view.entrada import Entrada
 
 
 class TelaColaboradores(Tela):
@@ -48,18 +47,14 @@ class TelaColaboradores(Tela):
     def cadastro(self) -> None:
         self.escreve_titulo()
         print("Novo colaborador\n")
-        matricula: str = Entrada.recebe_matricula("Matrícula: ")
-        cpf: str = Entrada.recebe_cpf("CPF: ")
-        pis_pasep: str = Entrada.recebe_pis_pasep("PIS/PASEP: ")
-        nome: str = Entrada.recebe_texto("Nome Completo: ")
-        cargo: str = Entrada.recebe_texto("Cargo: ")
-        data: str = Entrada.recebe_data("Data de Admissão(dd/MM/aaaa): ")
-        print(matricula, cpf, pis_pasep, nome, cargo, data)
+        matricula: str = input("Matrícula: ")
+        cpf: str = input("CPF: ")
+        pis_pasep: str = input("PIS/PASEP: ")
+        nome: str = input("Nome Completo: ")
+        cargo: str = input("Cargo: ")        
+        data_admissao: str = input("Data de Admissão(dd/mm/aaaa): ")
+        colaborador: Colaborador = Colaborador(matricula, cpf, pis_pasep, nome,
+                                               cargo, data_admissao)
+        print()
+        print(colaborador, "\n")
         input("pressione qualquer tecla para voltar")
-        
-        # data_admissao: str = input("Data de Admissão(dd/mm/aaaa): ")
-        # colaborador: Colaborador = Colaborador(matricula, cpf, pis_pasep, nome,
-        #                                        cargo, data_admissao)
-        # print()
-        # print(colaborador, "\n")
-        # input("pressione qualquer tecla para voltar")
