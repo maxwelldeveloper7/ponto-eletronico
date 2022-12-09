@@ -2,7 +2,30 @@ import re
 from validate_docbr import CPF, PIS
 
 
-class Entrada:    
+class Entrada:
+    def numero_inteiro(valor: str) -> int:
+        """ Remove caracteres que não sejam dígitos
+
+        Args:
+            valor (str): recebe dados digitados pelo usuário
+
+        Returns:
+            int: retona um número inteiro caso o campo filtro não esteja vazio
+        """
+        # filtra o valor informado e remove tudo que não for dígito
+        filtro: str = ''.join([i for i in valor if i.isdigit()])
+        # atribue None ao filtro caso esteja vazio
+        if len(filtro) == 0:
+            filtro = None
+        # tenta atribuir os digitos filtrados ao campo dígitos e o retorna
+        try:
+            digitos = int(filtro)
+            return digitos
+        except TypeError:
+            # ao falhar exibe esta mensagem
+            print('Campo vazio')
+            # raise
+
     def recebe_matricula(label: str) -> str:
         """ Recebe um número de matrícula pelo teclado e verifica se possui
             apenas digitos. Caso possua caracteres alfa os remove.
@@ -13,7 +36,9 @@ class Entrada:
         Returns:
             str: Número de matrícula. apenas dígitos
         """
-        matricula: str = input(label)
+        print('devo transferir a responsabilidade do tratamento \
+            de dados para a classe colaborador')
+        matricula: str = input((label))
         padrao: str = "[0-9]{1,6}"
         matricula_valida: bool = re.findall(padrao, matricula)
         if matricula_valida:
@@ -140,7 +165,7 @@ class Entrada:
                 else:
                     print("dia inválido")
                     return None
-            else:
+            else: 
                 print("mês inválido")
                 return None
         else:
