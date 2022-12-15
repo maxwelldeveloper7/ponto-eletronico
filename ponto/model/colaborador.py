@@ -1,7 +1,10 @@
+from view.entrada import Entrada
+
+
 class Colaborador:
     def __init__(self, matricula: str, cpf: str, pispasep: str, nome: str,
                  cargo: str, admissao: str) -> None:
-        self._matricula = matricula
+        self._matricula = Entrada.numero_inteiro(matricula)
         self._cpf = cpf
         self._pispasep = pispasep
         self._nome = nome
@@ -34,7 +37,7 @@ class Colaborador:
 
     @matricula.setter
     def matricula(self, matricula):
-        self._matricula = matricula
+        self._matricula = Entrada.numero_inteiro(matricula)
 
     @cpf.setter
     def cpf(self, cpf):
@@ -65,17 +68,17 @@ class Colaborador:
         """
         dados_incompletos: list = []
         if self.matricula == None:
-            list.append('matricula')
+            dados_incompletos.append('matricula')
         elif self.cpf == None:
-            list.append('cpf')
+            dados_incompletos.append('cpf')
         elif self.pispasep == None:
-            list.append('pispasep')
+            dados_incompletos.append('pispasep')
         elif self.nome == None:
-            list.append('nome')
+            dados_incompletos.append('nome')
         elif self.cargo == None:
-            list.append('cargo')
+            dados_incompletos.append('cargo')
         elif self.admissao == None:
-            list.append('admissao')
+            dados_incompletos.append('admissao')
         if(len(dados_incompletos) > 0):
             return dados_incompletos
         else:
