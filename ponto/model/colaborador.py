@@ -56,9 +56,34 @@ class Colaborador:
     def admissao(self, admissao):
         self._admissao = admissao
 
+    def dados_incompletos(self) -> list:
+        """ Verifica se há atributos com valor None e os inclui em uma lista de String.
+            Caso contrário retorna None:
+
+        Returns:
+            list: or None: 
+        """
+        dados_incompletos: list = []
+        if self.matricula == None:
+            list.append('matricula')
+        elif self.cpf == None:
+            list.append('cpf')
+        elif self.pispasep == None:
+            list.append('pispasep')
+        elif self.nome == None:
+            list.append('nome')
+        elif self.cargo == None:
+            list.append('cargo')
+        elif self.admissao == None:
+            list.append('admissao')
+        if(len(dados_incompletos) > 0):
+            return dados_incompletos
+        else:
+            return None
+
     def __str__(self) -> str:
         return 'Matrícula: {}\nCPF: {}\nPIS/PASEP: {}\nNome: {}\nCargo: {}\
-            \nAdmissão: {}'.format(
+            \nAdmissão: {}\nCampos Vazios: {}'.format(
             self.matricula, self.cpf, self.pispasep, self.nome,
-            self.cargo, self.admissao
+            self.cargo, self.admissao, self.dados_incompletos()
         )
