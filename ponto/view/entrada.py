@@ -36,8 +36,6 @@ class Entrada:
         Returns:
             str: Número de matrícula. apenas dígitos
         """
-        print('devo transferir a responsabilidade do tratamento \
-            de dados para a classe colaborador')
         matricula: str = input((label))
         padrao: str = "[0-9]{1,6}"
         matricula_valida: bool = re.findall(padrao, matricula)
