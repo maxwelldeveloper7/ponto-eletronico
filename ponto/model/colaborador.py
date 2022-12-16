@@ -4,7 +4,7 @@ from view.entrada import Entrada
 class Colaborador:
     def __init__(self, matricula: str, cpf: str, pispasep: str, nome: str,
                  cargo: str, admissao: str) -> None:
-        self._matricula = Entrada.numero_inteiro(matricula)
+        self._matricula = Entrada.recebe_matricula(matricula)
         self._cpf = cpf
         self._pispasep = pispasep
         self._nome = nome
@@ -37,7 +37,7 @@ class Colaborador:
 
     @matricula.setter
     def matricula(self, matricula):
-        self._matricula = Entrada.numero_inteiro(matricula)
+        self._matricula = Entrada.recebe_matricula(matricula)
 
     @cpf.setter
     def cpf(self, cpf):
