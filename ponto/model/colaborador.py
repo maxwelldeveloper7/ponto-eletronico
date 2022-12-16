@@ -5,7 +5,7 @@ class Colaborador:
     def __init__(self, matricula: str, cpf: str, pispasep: str, nome: str,
                  cargo: str, admissao: str) -> None:
         self._matricula = Entrada.recebe_matricula(matricula)
-        self._cpf = cpf
+        self._cpf = Entrada.recebe_cpf(cpf)
         self._pispasep = pispasep
         self._nome = nome
         self._cargo = cargo
@@ -41,7 +41,7 @@ class Colaborador:
 
     @cpf.setter
     def cpf(self, cpf):
-        self._cpf = cpf
+        self._cpf = Entrada.recebe_cpf(cpf)
 
     @pispasep.setter
     def pispasep(self, pispasep):
@@ -69,7 +69,7 @@ class Colaborador:
         dados_incompletos: list = []
         if self.matricula == None:
             dados_incompletos.append('matricula')
-        elif self.cpf == None:
+        if self.cpf == None:
             dados_incompletos.append('cpf')
         elif self.pispasep == None:
             dados_incompletos.append('pispasep')
