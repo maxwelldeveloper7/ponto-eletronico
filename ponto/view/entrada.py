@@ -61,7 +61,7 @@ class Entrada:
             str: CPF válido ou None caso seja inválido
         """
              
-        cpf: str = input(label)
+        cpf: str = label
         if len(cpf) == 11:
             padrao: str = "[0-9]{11}"
             documento = re.search(padrao, cpf).group()
