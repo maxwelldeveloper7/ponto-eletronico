@@ -71,13 +71,13 @@ class Colaborador:
             dados_incompletos.append('matricula')
         if self.cpf == None:
             dados_incompletos.append('cpf')
-        elif self.pispasep == None:
+        if self.pispasep == None:
             dados_incompletos.append('pispasep')
-        elif self.nome == None:
+        if self.nome == None:
             dados_incompletos.append('nome')
-        elif self.cargo == None:
+        if self.cargo == None:
             dados_incompletos.append('cargo')
-        elif self.admissao == None:
+        if self.admissao == None:
             dados_incompletos.append('admissao')
         if(len(dados_incompletos) > 0):
             return dados_incompletos
