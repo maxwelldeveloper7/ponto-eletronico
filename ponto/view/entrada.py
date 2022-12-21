@@ -122,37 +122,27 @@ class Entrada:
             str: retorna uma data no formato dd/MM/aaaa
         """
         data: str = label
-        padrao: str = "[0-9]{2}/[0-9]{2}/[0-9]{4}"
-        data_valida: bool = re.findall(padrao, data)
-        resposta = re.search(padrao, data)
-        print(data_valida)
-        print(resposta.group())
+        padrao: str = "[0-9]{2}/[0-9]{2}/[0-9]{4}"        
+        dado_valido: bool = re.findall(padrao, data)
+        if dado_valido:
+            resposta = re.search(padrao, data)
+            print(dado_valido)
+            return resposta.group()
+        else:
+            return
         
+        
+        # verifica se o dia, mês e ano informádo são válidos
+
+    def valida_data(self, data) -> bool:
         dia: int = None
         mes: int = None
-        ano: int = None
-        # tenta receber os dados no formato inteiro
-        try:            
-            dia: int = int(input("Dia: "))
-            try:            
-                mes: int = int(input("Mês: "))
-                try:            
-                    ano: int = int(input("Ano: "))
-                except:
-                    print("tipo ano inválido")
-                    return None
-            except:
-                print("tipo mês inválido")
-                return None
-        except:
-            print("tipo dia inválido")
-            return None
-        # verifica se o dia, mês e ano informádo são válidos
+        ano: int = None        
+        # verifica de a data é válida
         data_valida: bool = False
         if ano in range(1900,2090):
             if mes in range(1,13):
                 if dia in range(1,32):
-                    # verifica de a data é válida
                     # Meses com 31 dias
                     if (mes == 1 or mes == 3 or mes == 5 or mes == 7 or \
                         mes == 8 or mes == 10 or mes == 12):
@@ -171,14 +161,8 @@ class Entrada:
                             data_valida = True
                 else:
                     print("dia inválido")
-                    return None
             else: 
                 print("mês inválido")
-                return None
         else:
             print("ano inválido")
-            return None
-        if data_valida:
-            return "{:02d}/{:02d}/{:04d}".format(dia, mes, ano)
-        else:
-            return None
+        return data_valida
