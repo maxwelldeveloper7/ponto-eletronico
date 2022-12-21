@@ -104,7 +104,7 @@ class Entrada:
         Returns:
             str: Nome Completo
         """
-        entrada: str = input(label)
+        entrada: str = label
         nome: str = ''.join([i for i in entrada if not i.isdigit()])
         nome = nome.lower()
         if len(nome) > 1:
