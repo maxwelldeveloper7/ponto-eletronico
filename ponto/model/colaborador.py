@@ -6,7 +6,7 @@ class Colaborador:
                  cargo: str, admissao: str) -> None:
         self._matricula = Entrada.recebe_matricula(matricula)
         self._cpf = Entrada.recebe_cpf(cpf)
-        self._pispasep = pispasep
+        self._pispasep = Entrada.recebe_pis_pasep(pispasep)
         self._nome = nome
         self._cargo = cargo
         self._admissao = admissao
