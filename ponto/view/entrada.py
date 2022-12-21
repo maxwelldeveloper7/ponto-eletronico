@@ -122,9 +122,11 @@ class Entrada:
             str: retorna uma data no formato dd/MM/aaaa
         """
         data: str = label
-        padrao: str = "[1-31]{2}/[1-12]{2}/[1900-2090]{4}"
+        padrao: str = "[0-9]{2}/[0-9]{2}/[0-9]{4}"
         data_valida: bool = re.findall(padrao, data)
-        print(re.search(padrao, data).group)
+        resposta = re.search(padrao, data)
+        print(data_valida)
+        print(resposta.group())
         
         dia: int = None
         mes: int = None
