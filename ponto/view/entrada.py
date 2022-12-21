@@ -124,7 +124,6 @@ class Entrada:
         dia: int = None
         mes: int = None
         ano: int = None
-        print(label)
         # tenta receber os dados no formato inteiro
         try:            
             dia: int = int(input("Dia: "))
