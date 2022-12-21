@@ -82,7 +82,7 @@ class Entrada:
             
         Returns:
             str: PIS/PASEP válido ou None caso seja inválido
-        """        
+        """
         pis_pasep: str = label
         if len(pis_pasep) == 11:
             padrao: str = "[0-9]{11}"
@@ -126,43 +126,42 @@ class Entrada:
         dado_valido: bool = re.findall(padrao, data)
         if dado_valido:
             resposta = re.search(padrao, data)
-            print(dado_valido)
-            return resposta.group()
-        else:
-            return
-        
-        
-        # verifica se o dia, mês e ano informádo são válidos
-
-    def valida_data(self, data) -> bool:
-        dia: int = None
-        mes: int = None
-        ano: int = None        
-        # verifica de a data é válida
-        data_valida: bool = False
-        if ano in range(1900,2090):
-            if mes in range(1,13):
-                if dia in range(1,32):
-                    # Meses com 31 dias
-                    if (mes == 1 or mes == 3 or mes == 5 or mes == 7 or \
-                        mes == 8 or mes == 10 or mes == 12):
-                        if(dia <= 31):
-                            data_valida = True
-                    # Meses com 30 dias
-                    elif (mes == 4 or mes == 6 or mes == 9 or mes == 11):
-                        if(dia<=30):
-                            data_valida = True
-                    elif mes == 2:
-                        # Testa se é bissexto
-                        if(ano%4 == 0 and ano%100 !=0) or (ano%400 == 0):
-                            if(dia<=29):
+            # verifica de a data é válida
+            dia: int = resposta.group()[0:2]
+            mes: int = resposta.group()[3:5]
+            ano: int = resposta.group()[6:]
+            print(ano)
+            data_valida: bool = False
+            if ano in range(1900,2090):
+                data_valida = True
+                if mes in range(1,13):
+                    if dia in range(1,32):
+                        # Meses com 31 dias
+                        if (mes == 1 or mes == 3 or mes == 5 or mes == 7 or \
+                            mes == 8 or mes == 10 or mes == 12):
+                            if(dia <= 31):
                                 data_valida = True
-                        elif(dia<=28):
-                            data_valida = True
-                else:
-                    print("dia inválido")
-            else: 
-                print("mês inválido")
+                        # Meses com 30 dias
+                        elif (mes == 4 or mes == 6 or mes == 9 or mes == 11):
+                            if(dia<=30):
+                                data_valida = True
+                        elif mes == 2:
+                            # Testa se é bissexto
+                            if(ano%4 == 0 and ano%100 !=0) or (ano%400 == 0):
+                                if(dia<=29):
+                                    data_valida = True
+                            elif(dia<=28):
+                                data_valida = True
+                    else:
+                        print("dia inválido")
+                else: 
+                    print("mês inválido")
+            else:
+                print("ano inválido")
+                print(dado_valido)
+            if data_valida:
+                return resposta.group()
+            else:
+                return None
         else:
-            print("ano inválido")
-        return data_valida
+            return None
