@@ -83,7 +83,7 @@ class Entrada:
         Returns:
             str: PIS/PASEP válido ou None caso seja inválido
         """        
-        pis_pasep: str = input(label)
+        pis_pasep: str = label
         if len(pis_pasep) == 11:
             padrao: str = "[0-9]{11}"
             documento = re.search(padrao, pis_pasep).group()
