@@ -9,7 +9,7 @@ class Colaborador:
         self._pispasep = Entrada.recebe_pis_pasep(pispasep)
         self._nome = Entrada.recebe_texto(nome)
         self._cargo = Entrada.recebe_texto(cargo)
-        self._admissao = admissao
+        self._admissao = Entrada.recebe_data(admissao)
 
     @property
     def matricula(self):
@@ -57,7 +57,7 @@ class Colaborador:
 
     @admissao.setter
     def admissao(self, admissao):
-        self._admissao = admissao
+        self._admissao = Entrada.recebe_data(admissao)
 
     def dados_incompletos(self) -> list:
         """ Verifica se há atributos com valor None e os inclui em uma lista de String.
