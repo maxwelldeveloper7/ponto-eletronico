@@ -112,56 +112,57 @@ class Entrada:
         else:
             return None    
 
-    def recebe_data(label: str) -> str:
+    def recebe_data(dt: str) -> str:
         """Recebe uma data no formato ddMMaaa ou dd/MM/aaaa
 
         Args:
-            label (str): texto informando o que deve ser inserido
+            dt (str): texto informando o que deve ser inserido
 
         Returns:
             str: retorna uma data no formato dd/MM/aaaa
         """
-        data: str = label
+        data: str = dt
         padrao: str = "[0-9]{2}/[0-9]{2}/[0-9]{4}"        
         dado_valido: bool = re.findall(padrao, data)
         if dado_valido:
-            resposta = re.search(padrao, data)
-            # verifica de a data é válida
-            dia: int = resposta.group()[0:2]
-            mes: int = resposta.group()[3:5]
-            ano: int = resposta.group()[6:]
-            print(ano)
-            data_valida: bool = False
-            if ano in range(1900,2090):
-                data_valida = True
-                if mes in range(1,13):
-                    if dia in range(1,32):
-                        # Meses com 31 dias
-                        if (mes == 1 or mes == 3 or mes == 5 or mes == 7 or \
-                            mes == 8 or mes == 10 or mes == 12):
-                            if(dia <= 31):
-                                data_valida = True
-                        # Meses com 30 dias
-                        elif (mes == 4 or mes == 6 or mes == 9 or mes == 11):
-                            if(dia<=30):
-                                data_valida = True
-                        elif mes == 2:
-                            # Testa se é bissexto
-                            if(ano%4 == 0 and ano%100 !=0) or (ano%400 == 0):
-                                if(dia<=29):
-                                    data_valida = True
-                            elif(dia<=28):
-                                data_valida = True
-                    else:
-                        print("dia inválido")
-                else: 
-                    print("mês inválido")
-            else:
-                print("ano inválido")
-                print(dado_valido)
-            if data_valida:
-                return resposta.group()
-            else:
-                return None
+            resposta = re.search(padrao, data)            
+            return resposta.group()            
         else:
             return None
+
+    def data_valida(self, data: str) -> bool:
+        # verifica de a data é válida
+        dia: int = int(data[0:2])
+        mes: int = int(data[3:5])
+        ano: int = int(data[6:])
+        data_valida: bool = False
+        if ano in range(1900,2090):
+            data_valida = True
+            if mes in range(1,13):
+                if dia in range(1,32):
+                    # Meses com 31 dias
+                    if (mes == 1 or mes == 3 or mes == 5 or mes == 7 or \
+                        mes == 8 or mes == 10 or mes == 12):
+                        if(dia <= 31):
+                            data_valida = True
+                    # Meses com 30 dias
+                    elif (mes == 4 or mes == 6 or mes == 9 or mes == 11):
+                        if(dia<=30):
+                            data_valida = True
+                    elif mes == 2:
+                        # Testa se é bissexto
+                        if(ano%4 == 0 and ano%100 !=0) or (ano%400 == 0):
+                            if(dia<=29):
+                                data_valida = True
+                        elif(dia<=28):
+                            data_valida = True
+                else:
+                    print("dia inválido")
+                    data_valida = False
+            else: 
+                print("mês inválido")
+                data_valida = False
+        else:
+            print("ano inválido")
+            data_valida = False
+        return data_valida
