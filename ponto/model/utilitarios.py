@@ -166,3 +166,18 @@ class Entrada:
             print("ano inválido")
             data_valida = False
         return data_valida
+
+class Validar:
+    
+    def data(data: str) -> bool:
+        dia: int = int(data[0:2])
+        mes: int = int(data[3:5])
+        ano: int = int(data[6:])
+        ano_valido: bool = False
+        mes_valido: bool = False
+        dia_valido: bool = False
+        anos_validos: range = range(1900,2090)
+        meses_trinta_um_dias: tuple = (1,3,5,7,8,10,12)
+        meses_trinta_dias: tuple = (4,6,9,11)
+        
+        return ano_valido and mes_valido and dia_valido
