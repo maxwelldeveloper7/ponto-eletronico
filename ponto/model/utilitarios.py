@@ -168,7 +168,6 @@ class Entrada:
         return data_valida
 
 class Validar:
-    
     def data(data: str) -> bool:
         dia: int = int(data[0:2])
         mes: int = int(data[3:5])
@@ -176,8 +175,29 @@ class Validar:
         ano_valido: bool = False
         mes_valido: bool = False
         dia_valido: bool = False
-        anos_validos: range = range(1900,2090)
+        anos_validos: range = range(1900,2091)# 1900 a 2091 exclusive
         meses_trinta_um_dias: tuple = (1,3,5,7,8,10,12)
         meses_trinta_dias: tuple = (4,6,9,11)
-        
+        # verifica se dia, mês e ano estão dentro do padrão
+        if (dia not in range(1,32)
+            and mes not in range(1,13) 
+            and ano not in range(1900,2091)):
+            print('fora do padrão')
+            
+        else:
+            print('dentro do padrão')
         return ano_valido and mes_valido and dia_valido
+
+    def ano_bissexto(ano: int) -> bool:
+        """ Verifica se um ano é bissexto
+
+        Args:
+            ano (int): Ano no formato aaaa
+
+        Returns:
+            bool: retorna True se verdadeiro ou False caso não seja bissexto
+        """
+        if (ano % 4 == 0 and ano % 100 != 0) or ano % 400 == 0:
+            return True
+        else:
+            return False
