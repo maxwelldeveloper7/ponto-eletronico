@@ -179,13 +179,18 @@ class Validar:
         meses_trinta_um_dias: tuple = (1,3,5,7,8,10,12)
         meses_trinta_dias: tuple = (4,6,9,11)
         # verifica se dia, mês e ano estão dentro do padrão
-        if (dia not in range(1,32)
-            and mes not in range(1,13) 
-            and ano not in range(1900,2091)):
-            print('fora do padrão')
-            
-        else:
-            print('dentro do padrão')
+        try:
+            if (dia not in range(1,32)
+                and mes not in range(1,13) 
+                and ano not in range(1900,2091)):
+                raise #ValueError('Data inválida')
+            else:
+                dia_valido = dia in range(1,32)
+                mes_valido = mes in meses_trinta_um_dias
+                ano_valido = ano in anos_validos
+                print(f'dia:{dia_valido}-mes:{mes_valido}-ano:{ano_valido}')
+        except Exception:
+            print('Data inválida')
         return ano_valido and mes_valido and dia_valido
 
     def ano_bissexto(ano: int) -> bool:
