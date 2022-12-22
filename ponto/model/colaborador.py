@@ -1,5 +1,4 @@
-from ponto.model.utilitarios import Entrada
-
+from model.utilitarios import Entrada
 
 class Colaborador:
     def __init__(self, matricula: str, cpf: str, pispasep: str, nome: str,
