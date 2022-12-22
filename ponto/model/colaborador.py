@@ -1,4 +1,4 @@
-from view.entrada import Entrada
+from ponto.model.utilitarios import Entrada
 
 
 class Colaborador:

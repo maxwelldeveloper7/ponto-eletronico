@@ -1,4 +1,4 @@
-from ponto.view.entrada import Entrada
+from ponto.model.utilitarios import Entrada
 from pytest import MonkeyPatch, mark
 import pytest
 
