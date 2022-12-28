@@ -181,8 +181,8 @@ class Validar:
         dia_valido = False
         mes_valido = False
         ano_valido = False
-        # testa se dia, mês e ano estão dentro do padrão
         try:
+            # testa se dia, mês e ano estão dentro do padrão
             if (dia not in dias or mes not in meses or ano not in anos):
                 raise
             if mes in mes_com_trinta_um_dias and dia <=31:
