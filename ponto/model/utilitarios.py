@@ -177,25 +177,25 @@ class Validar:
         dias: range = range(1,32)# 32 exclusive
         mes_com_trinta_um_dias: tuple = (1,3,5,7,8,10,12)
         mes_com_trinta_dias: tuple = (4,6,9,11)
-        mes_vinte_oito_ou_vinte_nove_dias: tuple = (2)
+        mes_vinte_oito_ou_vinte_nove_dias: int = 2
         dia_valido = False
         mes_valido = False
         ano_valido = False
         # testa se dia, mês e ano estão dentro do padrão
         try:
-            breakpoint()
             if (dia not in dias or mes not in meses or ano not in anos):
                 raise
             if mes in mes_com_trinta_um_dias and dia <=31:
                 print('dia e mês válido com 31 dias')
             elif mes in mes_com_trinta_dias and dia <=30:
                 print('dia e mês válido com 30 dias')
-            elif mes in mes_vinte_oito_ou_vinte_nove_dias:
-                print('fevereiro')
+            elif mes == mes_vinte_oito_ou_vinte_nove_dias:
                 if Validar.ano_bissexto(ano) and dia <=29:
                     print('dia e mês válido com 29 dias e ano bissexto')
                 elif dia <=28:
                     print('dia e mês válido com 28 dias')
+                else:
+                    raise
             else:
                 raise
             print('continuou')
