@@ -185,23 +185,28 @@ class Validar:
             # testa se dia, mês e ano estão dentro do padrão
             if (dia not in dias or mes not in meses or ano not in anos):
                 raise
+            # a partir daqui todos os anos são válidos
+            ano_valido = True
             if mes in mes_com_trinta_um_dias and dia <=31:
-                print('dia e mês válido com 31 dias')
+                mes_valido = True
+                dia_valido = True
             elif mes in mes_com_trinta_dias and dia <=30:
-                print('dia e mês válido com 30 dias')
+                mes_valido = True
+                dia_valido = True
             elif mes == mes_vinte_oito_ou_vinte_nove_dias:
+                mes_valido = True
                 if Validar.ano_bissexto(ano) and dia <=29:
-                    print('dia e mês válido com 29 dias e ano bissexto')
+                    dia_valido = True
                 elif dia <=28:
-                    print('dia e mês válido com 28 dias')
+                    dia_valido = True
                 else:
                     raise
             else:
                 raise
             print('continuou')
         except Exception:
-            print('Data inválida')
-        return dia in dias and mes in meses and ano in anos
+            print('Data inválida', ano_valido, mes_valido, dia_valido)
+        return ano_valido and mes_valido and dia_valido
 
     def ano_bissexto(ano: int) -> bool:
         """ Verifica se um ano é bissexto
