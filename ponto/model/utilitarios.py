@@ -21,10 +21,11 @@ class Entrada:
         try:
             digitos = int(filtro)
             return digitos
-        except TypeError:
+        except Exception:
             # ao falhar exibe esta mensagem
             print('Campo vazio')
             # raise
+            return None
 
     def recebe_matricula(label: str) -> str:
         """ Recebe um número de matrícula pelo teclado e verifica se possui
@@ -175,9 +176,8 @@ class Validar:
                     raise
             else:
                 raise
-            print('continuou')
         except Exception:
-            print('Data inválida', ano_valido, mes_valido, dia_valido)
+            print('Data inválida')
         return ano_valido and mes_valido and dia_valido
 
     def ano_bissexto(ano: int) -> bool:
