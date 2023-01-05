@@ -3,6 +3,13 @@ from ponto.model.utilitarios import Validar
 from pytest import MonkeyPatch, mark
 import pytest
 
+class TestNumeroInteiro:
+    def test_quando_o_texto_for_vazio_deve_retornar_Exception(self):
+        with pytest.raises(Exception):
+            texto = '' # contexto
+            resultado = Entrada.numero_inteiro('') # ação
+            assert resultado            
+
 class TestAnoBissexto:
     def test_quando_o_ano_for_2023_deve_retornar_False(self):
         ano: int = 2023 # contexto
