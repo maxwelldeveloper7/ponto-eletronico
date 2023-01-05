@@ -14,7 +14,68 @@ class TestAnoBissexto:
         ano: int = 2024 # contexto
         esperado = True
         resultado = Validar.ano_bissexto(ano) # ação
-        assert resultado == esperado # desfecho        
+        assert resultado == esperado # desfecho
+
+class TestData:
+    def test_quando_a_data_for_00_00_0000_deve_retornar_False(self):
+        data: str = '00/00/0000' # contexto
+        esperado = False
+        resultado = Validar.data(data) # ação
+        assert resultado == esperado
+
+    def test_quando_a_data_for_31_12_1899_deve_retornar_False(self):
+        data: str = '31/12/1899' # contexto
+        esperado = False
+        resultado = Validar.data(data) # ação
+        assert resultado == esperado
+
+    def test_quando_a_data_for_01_01_2091_deve_retornar_False(self):
+        data: str = '01/01/2091' # contexto
+        esperado = False
+        resultado = Validar.data(data) # ação
+        assert resultado == esperado
+
+    def test_quando_a_data_for_01_13_2090_deve_retornar_False(self):
+        data: str = '01/13/2090' # contexto
+        esperado = False
+        resultado = Validar.data(data) # ação
+        assert resultado == esperado
+
+    def test_quando_a_data_for_31_4_2023_deve_retornar_False(self):
+        data: str = '31/04/2023' # contexto
+        esperado = False
+        resultado = Validar.data(data) # ação
+        assert resultado == esperado
+
+    def test_quando_a_data_for_29_02_2023_deve_retornar_False(self):
+        data: str = '29/02/2023' # contexto
+        esperado = False
+        resultado = Validar.data(data) # ação
+        assert resultado == esperado
+
+    def test_quando_a_data_for_29_02_2024_deve_retornar_True(self):
+        data: str = '29/02/2024' # contexto
+        esperado = True
+        resultado = Validar.data(data) # ação
+        assert resultado == esperado
+
+    def test_quando_a_data_for_31_01_2023_deve_retornar_True(self):
+        data: str = '31/01/2023' # contexto
+        esperado = True
+        resultado = Validar.data(data) # ação
+        assert resultado == esperado
+
+    def test_quando_a_data_for_30_04_2024_deve_retornar_True(self):
+        data: str = '30/04/2024' # contexto
+        esperado = True
+        resultado = Validar.data(data) # ação
+        assert resultado == esperado
+
+    def test_quando_a_data_for_28_02_2023_deve_retornar_True(self):
+        data: str = '28/02/2023' # contexto
+        esperado = True
+        resultado = Validar.data(data) # ação
+        assert resultado == esperado
 
 class TestRecebeMatricula:
     pass
