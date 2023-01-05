@@ -132,6 +132,15 @@ class Entrada:
 
 class Validar:
     def data(data: str) -> bool:
+        """Recebe uma data em string e verifica se é uma data válida        
+
+        Args:
+            data (str): data em string no formato dd/MM/YYYY
+
+        Returns:
+            bool: Retorna True se for uma data válida e False caso seja 
+            inválida
+        """
         dia: int = int(data[0:2])
         mes: int = int(data[3:5])
         ano: int = int(data[6:])
