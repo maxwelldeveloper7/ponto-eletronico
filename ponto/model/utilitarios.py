@@ -37,18 +37,24 @@ class Entrada:
         Returns:
             str: Número de matrícula. apenas dígitos
         """
-        matricula: str = str(Entrada.numero_inteiro(label))
-        padrao: str = "[0-9]{1,6}"
-        matricula_valida: bool = re.findall(padrao, matricula)
-        if matricula_valida:
-            resposta = re.search(padrao, matricula)            
-            # Se a matrícula for 0 retorna None
-            if int(resposta.group()) == 0:
-                return None
-            # Resposta da busca convertida em inteiro para formatar matrícula
-            # com zeros a esquerda            
-            return str("{:06d}".format(int(resposta.group())))
-        else:
+        try:
+            matricula: str = str(Entrada.numero_inteiro(label))
+            padrao: str = "[0-9]{1,6}"
+            matricula_valida: bool = re.findall(padrao, matricula)
+            if matricula_valida:
+                resposta = re.search(padrao, matricula)            
+                # Se a matrícula for 0 lança uma exceção e retorna None
+                if int(resposta.group()) == 0:
+                    raise
+                # Resposta da busca convertida em inteiro para formatar
+                # matrícula
+                # com zeros a esquerda            
+                return str("{:06d}".format(int(resposta.group())))
+            # se não estiver dentro do padrão lança exceçao e retorna None
+            else:
+                raise
+        except Exception:
+            print('Matrícula inválida...')
             return None
 
     def recebe_cpf(label: str) -> str:
