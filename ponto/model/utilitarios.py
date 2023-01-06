@@ -37,7 +37,7 @@ class Entrada:
         Returns:
             str: Número de matrícula. apenas dígitos
         """
-        matricula: str = label
+        matricula: str = str(Entrada.numero_inteiro(label))
         padrao: str = "[0-9]{1,6}"
         matricula_valida: bool = re.findall(padrao, matricula)
         if matricula_valida:
