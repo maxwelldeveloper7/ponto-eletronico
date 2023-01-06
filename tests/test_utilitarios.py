@@ -8,7 +8,13 @@ class TestNumeroInteiro:
         with pytest.raises(Exception):
             texto = '' # contexto
             resultado = Entrada.numero_inteiro('') # ação
-            assert resultado            
+            assert resultado
+
+    def test_quando_o_texto_for_a1b2c3d4f5g6_deve_retornar_123456(self):
+        texto: str = 'a1b2c3d4f5g6' #contexto
+        esperado: int = 123456
+        resultado = Entrada.numero_inteiro(texto) # ação
+        assert resultado == esperado # desfecho
 
 class TestAnoBissexto:
     def test_quando_o_ano_for_2023_deve_retornar_False(self):
