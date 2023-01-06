@@ -3,6 +3,25 @@ from ponto.model.utilitarios import Validar
 from pytest import MonkeyPatch, mark
 import pytest
 
+class TestMatriculaMatricula:
+    def test_quando_a_matricula_for_0_deve_retornar_Exception(self):
+        with pytest.raises(Exception):
+            matricula = '0' # contexto
+            resultado = Entrada.recebe_matricula(matricula) # ação
+            assert resultado # desfecho
+
+    def test_quando_a_matricula_for_vazia_deve_retornar_Exception(self):
+        with pytest.raises(Exception):
+            matricula = '' # contexto
+            resultado = Entrada.recebe_matricula(matricula) # ação
+            assert resultado # desfecho
+
+    def test_quando_a_matricula_for_7702_deve_retornar_007702(self):
+        matricula = '7702' # contexto
+        esperado = '007702'
+        resultado = Entrada.recebe_matricula(matricula) # ação
+        assert resultado == esperado # desfecho
+
 class TestNumeroInteiro:
     def test_quando_o_texto_for_vazio_deve_retornar_Exception(self):
         with pytest.raises(Exception):
@@ -90,8 +109,8 @@ class TestData:
         resultado = Validar.data(data) # ação
         assert resultado == esperado
 
-class TestRecebeMatricula:
-    pass
+# class TestRecebeMatricula:
+#     pass
     # def test_quando_matricula_for_vazia_deve_retornar_None(self):
     #     # Given - contexto
     #     monkeypatch = MonkeyPatch()
@@ -191,6 +210,3 @@ class TestRecebeMatricula:
     #     resultado = entrada_teste.recebe_matricula()
     #     # Then - desfecho
     #     assert resultado == esperado
-
-class TestRecebeCpf:
-    ...
