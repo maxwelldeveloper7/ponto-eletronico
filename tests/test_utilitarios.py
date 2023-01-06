@@ -3,7 +3,7 @@ from ponto.model.utilitarios import Validar
 from pytest import MonkeyPatch, mark
 import pytest
 
-class TestMatriculaMatricula:
+class TestRecebeMatricula:
     def test_quando_a_matricula_for_0_deve_retornar_Exception(self):
         with pytest.raises(Exception):
             matricula = '0' # contexto
@@ -26,7 +26,7 @@ class TestNumeroInteiro:
     def test_quando_o_texto_for_vazio_deve_retornar_Exception(self):
         with pytest.raises(Exception):
             texto = '' # contexto
-            resultado = Entrada.numero_inteiro('') # ação
+            resultado = Entrada.numero_inteiro(texto) # ação
             assert resultado
 
     def test_quando_o_texto_for_a1b2c3d4f5g6_deve_retornar_123456(self):
