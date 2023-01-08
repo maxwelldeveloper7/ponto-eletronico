@@ -95,15 +95,19 @@ class Entrada:
             str: PIS/PASEP válido ou None caso seja inválido
         """
         pis_pasep: str = label
-        if len(pis_pasep) == 11:
-            padrao: str = "[0-9]{11}"
-            documento = re.search(padrao, pis_pasep).group()
-            validador = PIS()
-            if validador.validate(documento):
-                return documento
+        try:
+            if len(pis_pasep) == 11:
+                padrao: str = "[0-9]{11}"
+                documento = re.search(padrao, pis_pasep).group()
+                validador = PIS()
+                if validador.validate(documento):
+                    return documento
+                else:
+                    raise
             else:
-                return None
-        else:
+                raise
+        except Exception:
+            print('PIS/PASEP inválido.')
             return None
 
     def recebe_texto(label: str) -> str:
