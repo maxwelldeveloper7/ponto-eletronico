@@ -69,15 +69,19 @@ class Entrada:
         """
              
         cpf: str = label
-        if len(cpf) == 11:
-            padrao: str = "[0-9]{11}"
-            documento = re.search(padrao, cpf).group()
-            validador = CPF()
-            if validador.validate(documento):
-                return documento
+        try:
+            if len(cpf) == 11:
+                padrao: str = "[0-9]{11}"
+                documento = re.search(padrao, cpf).group()
+                validador = CPF()
+                if validador.validate(documento):
+                    return documento
+                else:
+                    raise
             else:
-                return None
-        else:
+                raise
+        except Exception:
+            print('CPF inválido.')
             return None
 
     def recebe_pis_pasep(label: str) -> str:

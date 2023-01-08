@@ -3,6 +3,25 @@ from ponto.model.utilitarios import Validar
 from pytest import MonkeyPatch, mark
 import pytest
 
+class TestRecebeCpf:
+    def test_quando_o_cpf_for_vazio_deve_retornar_Exception(self):
+        with pytest.raises(Exception):
+            cpf = '' # contexto
+            resultado = Entrada.recebe_cpf(cpf) # ação
+            assert resultado # desfecho
+
+    def test_quando_o_cpf_for_12345678912_deve_retornar_Exception(self):
+        with pytest.raises(Exception):
+            cpf = '12345678912' # contexto
+            resultado = Entrada.recebe_cpf(cpf) # ação
+            assert resultado # desfecho
+
+    def test_quando_o_cpf_for_84981191030_deve_retornar_84981191030(self):
+        cpf = '84981191030' # contexto
+        esperado = '84981191030'
+        resultado = Entrada.recebe_cpf(cpf) # ação
+        assert resultado == esperado # desfecho
+
 class TestRecebeMatricula:
     def test_quando_a_matricula_for_0_deve_retornar_Exception(self):
         with pytest.raises(Exception):
