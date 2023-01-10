@@ -31,10 +31,16 @@ class TestPisPasep:
 class TestRecebeCpf:
     def test_quando_o_cpf_for_vazio_deve_retornar_Exception(self):
         with pytest.raises(Exception):
-            cpf = '' # contexto
+            cpf = '12345678912' # contexto
             resultado = Entrada.recebe_cpf(cpf) # ação
             assert resultado # desfecho
 
+    def test_quando_o_cpf_tiver_mais_de_11_digitos_deve_retornar_Exception(self):
+        with pytest.raises(Exception):
+            cpf = '123456789123' # contexto
+            resultado = Entrada.recebe_cpf(cpf) # ação
+            assert resultado # desfecho
+            
     def test_quando_o_cpf_for_12345678912_deve_retornar_Exception(self):
         with pytest.raises(Exception):
             cpf = '12345678912' # contexto
