@@ -3,6 +3,19 @@ from ponto.model.utilitarios import Validar
 from pytest import MonkeyPatch, mark
 import pytest
 
+class TestRecebeData:
+    def test_quando_a_data_for_vazia_deve_retornar_Exception(self):
+        with pytest.raises(Exception):
+            data = '' # contexto
+            resultado = Entrada.recebe_data(data) # ação
+            assert resultado # desfecho
+
+    def test_quando_a_data_for_24072013_deve_retornar24072013(self):
+        data = '24/07/2013' # contexto
+        esperado = '24/07/2013'
+        resultado = Entrada.recebe_data(data) # ação
+        assert esperado == resultado # desfecho
+
 class TestRecebNome:
     def test_quando_o_nome_for_fazio_deve_retornar_Exception(self):
         with pytest.raises(Exception):
