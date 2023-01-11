@@ -3,7 +3,7 @@ from ponto.model.utilitarios import Validar
 from pytest import MonkeyPatch, mark
 import pytest
 
-class TestPisPasep:
+class TestRecebePisPasep:
     def test_quando_o_pispasep_for_vazio_deve_retornar_Exception(self):
        with pytest.raises(Exception) :
            pispasep = '' # contexto
