@@ -22,12 +22,9 @@ class Entrada:
             digitos = int(filtro)
             return digitos
         except Exception:
-            # ao falhar exibe esta mensagem
-            print('Campo vazio')
-            # raise
             return None
 
-    def recebe_matricula(label: str) -> str:
+    def recebe_matricula(arg: str) -> str:
         """ Recebe um número de matrícula pelo teclado e verifica se possui
             apenas digitos. Caso possua caracteres alfa os remove.
         
@@ -37,8 +34,8 @@ class Entrada:
         Returns:
             str: Número de matrícula. apenas dígitos
         """
+        matricula: str = str(Entrada.numero_inteiro(arg))
         try:
-            matricula: str = str(Entrada.numero_inteiro(label))
             padrao: str = "[0-9]{1,6}"
             matricula_valida: bool = re.findall(padrao, matricula)
             if matricula_valida:
@@ -54,7 +51,9 @@ class Entrada:
             else:
                 raise
         except Exception:
-            print('Matrícula inválida...')
+            if len(arg) == 0:
+                arg = 'Campo vazio'
+            print('Matrícula inválida:', arg)
             return None
 
     def recebe_cpf(label: str) -> str:
