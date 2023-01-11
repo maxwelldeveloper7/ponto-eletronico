@@ -6,8 +6,8 @@ class Colaborador:
         self._matricula = Entrada.recebe_matricula(matricula)
         self._cpf = Entrada.recebe_cpf(cpf)
         self._pispasep = Entrada.recebe_pis_pasep(pispasep)
-        self._nome = Entrada.recebe_texto(nome)
-        self._cargo = Entrada.recebe_texto(cargo)
+        self._nome = Entrada.recebe_nome(nome)
+        self._cargo = Entrada.recebe_nome(cargo)
         self._admissao = Entrada.recebe_data(admissao)
 
     @property
@@ -48,11 +48,11 @@ class Colaborador:
 
     @nome.setter
     def nome(self, nome):
-        self._nome = Entrada.recebe_texto(nome)
+        self._nome = Entrada.recebe_nome(nome)
 
     @cargo.setter
     def cargo(self, cargo):
-        self._cargo = Entrada.recebe_texto(cargo)
+        self._cargo = Entrada.recebe_nome(cargo)
 
     @admissao.setter
     def admissao(self, admissao):

@@ -110,7 +110,7 @@ class Entrada:
             print('PIS/PASEP inválido.')
             return None
 
-    def recebe_texto(label: str) -> str:
+    def recebe_nome(label: str) -> str:
         """Remove dígitos do nome completo
 
         Args:
@@ -119,12 +119,16 @@ class Entrada:
         Returns:
             str: Nome Completo
         """
-        entrada: str = label
-        nome: str = ''.join([i for i in entrada if not i.isdigit()])
-        nome = nome.lower()
-        if len(nome) > 1:
-            return nome
-        else:
+        try:
+            entrada: str = label
+            nome: str = ''.join([i for i in entrada if not i.isdigit()])
+            nome = nome.lower()
+            if len(nome) > 1:
+                return nome
+            else:
+                raise
+        except Exception:
+            print('Campo vazio!')
             return None    
 
     def recebe_data(dt: str) -> str:
