@@ -3,30 +3,49 @@ from ponto.model.utilitarios import Validar
 from pytest import MonkeyPatch, mark
 import pytest
 
+class TestRecebNome:
+    def test_quando_o_nome_for_fazio_deve_retornar_Exception(self):
+        with pytest.raises(Exception):
+            nome = '' # contexto
+            resultado = Entrada.recebe_nome(nome) # ação
+            assert resultado # desfecho
+
+    def test_quando_o_nome_for_1_deve_retornar_Exception(self):
+        with pytest.raises(Exception):
+            nome = '1' # contexto
+            resultado = Entrada.recebe_nome(nome) # ação
+            assert resultado # desfecho
+
+    def test_quando_o_nome_for_maxwell7_deve_retornar_maxwell(self):
+        nome = 'maxwell7'
+        esperado = 'maxwell'
+        resultado = Entrada.recebe_nome(nome)
+        assert resultado == esperado
+
 class TestRecebePisPasep:
     def test_quando_o_pispasep_for_vazio_deve_retornar_Exception(self):
-       with pytest.raises(Exception) :
-           pispasep = '' # contexto
-           resultado = Entrada.recebe_pis_pasep(pispasep) # ação
-           assert resultado # desfecho
+        with pytest.raises(Exception) :
+            pispasep = '' # contexto
+            resultado = Entrada.recebe_pis_pasep(pispasep) # ação
+            assert resultado # desfecho
 
     def test_quando_o_pispasep_tiver_mais_de_11_digitos_deve_retornar_Exception(self):
         with pytest.raises(Exception) :
-           pispasep = '123456789123' # contexto
-           resultado = Entrada.recebe_pis_pasep(pispasep) # ação
-           assert resultado # desfecho
+            pispasep = '123456789123' # contexto
+            resultado = Entrada.recebe_pis_pasep(pispasep) # ação
+            assert resultado # desfecho
 
     def test_quando_o_pispasep_for_12345678912_deve_retornar_Exception(self):
         with pytest.raises(Exception) :
-           pispasep = '12345678912' # contexto
-           resultado = Entrada.recebe_pis_pasep(pispasep) # ação
-           assert resultado # desfecho 
+            pispasep = '12345678912' # contexto
+            resultado = Entrada.recebe_pis_pasep(pispasep) # ação
+            assert resultado # desfecho 
 
     def test_quando_o_pispase_for_26621161644_deve_retornar_26621161644(self):
-        pispasep = '26621161644'
+        pispasep = '26621161644' # contexto
         esperado = '26621161644'
-        resultado = Entrada.recebe_pis_pasep(pispasep)
-        assert resultado == esperado
+        resultado = Entrada.recebe_pis_pasep(pispasep) # ação
+        assert resultado == esperado # desfecho
 
 class TestRecebeCpf:
     def test_quando_o_cpf_for_vazio_deve_retornar_Exception(self):
