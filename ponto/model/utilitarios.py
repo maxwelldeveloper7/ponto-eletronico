@@ -53,7 +53,7 @@ class Entrada:
         except Exception:
             if len(arg) == 0:
                 arg = 'Campo vazio'
-            print('Matrícula inválida:', arg)
+            print('Matrícula inválida ->', arg)
             return None
 
     def recebe_cpf(label: str) -> str:
