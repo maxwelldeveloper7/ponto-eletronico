@@ -56,7 +56,7 @@ class Entrada:
             print('Matrícula inválida ->', arg)
             return None
 
-    def recebe_cpf(label: str) -> str:
+    def recebe_cpf(arg: str) -> str:
         """Recebe um CPF pelo teclado e verifica se possui 11 dígitos e se é
             válido.
 
@@ -67,7 +67,7 @@ class Entrada:
             str: CPF válido ou None caso seja inválido
         """
              
-        cpf: str = label
+        cpf: str = arg
         try:
             if len(cpf) == 11:
                 padrao: str = "[0-9]{11}"
@@ -80,10 +80,12 @@ class Entrada:
             else:
                 raise
         except Exception:
-            print('CPF inválido.')
+            if len(arg) == 0:
+                arg = 'Campo vazio'
+            print('CPF inválido ->', arg)
             return None
 
-    def recebe_pis_pasep(label: str) -> str:
+    def recebe_pis_pasep(arg: str) -> str:
         """ Recebe um PIS/PASEP pelo teclado e verifica se possui 11 dígitos
             e se é válido.
             
@@ -93,7 +95,7 @@ class Entrada:
         Returns:
             str: PIS/PASEP válido ou None caso seja inválido
         """
-        pis_pasep: str = label
+        pis_pasep: str = arg
         try:
             if len(pis_pasep) == 11:
                 padrao: str = "[0-9]{11}"
@@ -106,10 +108,12 @@ class Entrada:
             else:
                 raise
         except Exception:
-            print('PIS/PASEP inválido.')
+            if len(arg) == 0:
+                arg = 'Campo vazio'
+            print('PIS/PASEP inválido ->', arg)
             return None
 
-    def recebe_nome(label: str) -> str:
+    def recebe_nome(arg: str) -> str:
         """Remove dígitos do nome completo
 
         Args:
@@ -119,7 +123,7 @@ class Entrada:
             str: Nome Completo
         """
         try:
-            entrada: str = label
+            entrada: str = arg
             nome: str = ''.join([i for i in entrada if not i.isdigit()])
             nome = nome.lower()
             if len(nome) > 1:
@@ -127,7 +131,9 @@ class Entrada:
             else:
                 raise
         except Exception:
-            print('Campo vazio!')
+            if len(arg) == 0:
+                arg = 'Campo vazio'
+            print('Dado inválido ->', arg)
             return None    
 
     def recebe_data(dt: str) -> str:
@@ -141,11 +147,15 @@ class Entrada:
         """
         data: str = dt
         padrao: str = "[0-9]{2}/[0-9]{2}/[0-9]{4}"        
-        dado_valido: bool = re.findall(padrao, data)
-        if dado_valido:
-            resposta = re.search(padrao, data)            
-            return resposta.group()            
+        esta_no_padrao: bool = re.findall(padrao, data)
+        if esta_no_padrao:
+            data_padronizada = re.search(padrao, data)
+            Validar.data(data_padronizada.group())
+            return data_padronizada.group()            
         else:
+            if len(data) == 0:
+                data = 'Campo vazio'
+            print('Data inválida ->', data)
             return None
 
 class Validar:
@@ -194,7 +204,7 @@ class Validar:
             else:
                 raise
         except Exception:
-            print('Data inválida')
+            print('Data inválida ->', data)
         return ano_valido and mes_valido and dia_valido
 
     def ano_bissexto(ano: int) -> bool:
