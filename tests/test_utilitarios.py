@@ -63,7 +63,7 @@ class TestRecebePisPasep:
 class TestRecebeCpf:
     def test_quando_o_cpf_for_vazio_deve_retornar_Exception(self):
         with pytest.raises(Exception):
-            cpf = '12345678912' # contexto
+            cpf = '' # contexto
             resultado = Entrada.recebe_cpf(cpf) # ação
             assert resultado # desfecho
 
