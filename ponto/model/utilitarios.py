@@ -1,5 +1,4 @@
 import re
-from typing import Optional
 from validate_docbr import CPF, PIS
 
 
@@ -12,19 +11,21 @@ class Entrada:
             valor (str): recebe dados digitados pelo usuário
 
         Returns:
-            int: retona um número inteiro caso o campo filtro não esteja vazio
+            int: retona um número inteiro e None caso o campo filtro não esteja vazio
         """
         # filtra o valor informado e remove tudo que não for dígito
         filtro: str = ''.join([i for i in valor if i.isdigit()])
-        # atribue None ao filtro caso esteja vazio
-        if len(filtro) == 0:
-            filtro = None
         # tenta atribuir os digitos filtrados ao campo dígitos e o retorna
         try:
+            # dispara exceção caso esteja vazio
+            if len(filtro) == 0:
+                raise
             digitos = int(filtro)
             return digitos
         except Exception:
+            print('Não há dígitos ->', valor)
             return None
+
     @staticmethod
     def recebe_matricula(arg: str) -> str:
         """ Recebe um número de matrícula pelo teclado e verifica se possui
@@ -55,6 +56,7 @@ class Entrada:
                 arg = 'Campo vazio'
             print('Matrícula inválida ->', arg)
             return None
+
     @staticmethod
     def recebe_cpf(arg: str) -> str:
         """Recebe um CPF pelo teclado e verifica se possui 11 dígitos e se é
@@ -84,6 +86,7 @@ class Entrada:
                 arg = 'Campo vazio'
             print('CPF inválido ->', arg)
             return None
+
     @staticmethod
     def recebe_pis_pasep(arg: str) -> str:
         """ Recebe um PIS/PASEP pelo teclado e verifica se possui 11 dígitos
