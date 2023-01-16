@@ -51,7 +51,7 @@ class TelaColaboradores(Tela):
         cpf: str = input("CPF: ")
         pis_pasep: str = input("PIS/PASEP: ")
         nome: str = input("Nome Completo: ")
-        cargo: str = input("Cargo: ")        
+        cargo: str = input("Cargo: ")
         data_admissao: str = input("Data de Admissão(dd/mm/aaaa): ")
         colaborador: Colaborador = Colaborador(matricula, cpf, pis_pasep, nome,
                                                cargo, data_admissao)

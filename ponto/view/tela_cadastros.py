@@ -20,10 +20,11 @@ class TelaCadastros(Tela):
             print("3 - Retornar\n")
             # Tratamento do que é informado pelo teclado utilizndo regex
             entrada: str = input(f"{mensagem}Digite uma opção: ")
-            # O valor deve ser entre 1 e 3 inclusive, e deve conter apenas 
+            # O valor deve ser entre 1 e 3 inclusive, e deve conter apenas
             # um caractere
             padrao: str = "[1-3]"
-            opcao_valida: bool = re.search(padrao, entrada) and len(entrada) == 1
+            opcao_valida: bool = re.search(padrao,
+                                           entrada) and len(entrada) == 1
             # Verifica se a opção é válida
             if opcao_valida:
                 # reinicia o conteúda da mensagem

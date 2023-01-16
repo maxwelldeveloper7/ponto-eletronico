@@ -27,10 +27,8 @@ class Entrada:
     def recebe_matricula(arg: str) -> str:
         """ Recebe um número de matrícula pelo teclado e verifica se possui
             apenas digitos. Caso possua caracteres alfa os remove.
-        
         Args:
             label (str): texto informando o que deve ser inserido
-        
         Returns:
             str: Número de matrícula. apenas dígitos
         """
@@ -39,13 +37,13 @@ class Entrada:
             padrao: str = "[0-9]{1,6}"
             matricula_valida: bool = re.findall(padrao, matricula)
             if matricula_valida:
-                resposta = re.search(padrao, matricula)            
+                resposta = re.search(padrao, matricula)
                 # Se a matrícula for 0 lança uma exceção e retorna None
                 if int(resposta.group()) == 0:
                     raise
                 # Resposta da busca convertida em inteiro para formatar
                 # matrícula
-                # com zeros a esquerda            
+                # com zeros a esquerda
                 return str("{:06d}".format(int(resposta.group())))
             # se não estiver dentro do padrão lança exceçao e retorna None
             else:
@@ -66,7 +64,7 @@ class Entrada:
         Returns:
             str: CPF válido ou None caso seja inválido
         """
-             
+
         cpf: str = arg
         try:
             if len(cpf) == 11:
@@ -88,10 +86,8 @@ class Entrada:
     def recebe_pis_pasep(arg: str) -> str:
         """ Recebe um PIS/PASEP pelo teclado e verifica se possui 11 dígitos
             e se é válido.
-            
         Args:
-            label (str): texto informando o que deve ser inserido    
-            
+            label (str): texto informando o que deve ser inserido
         Returns:
             str: PIS/PASEP válido ou None caso seja inválido
         """
@@ -134,7 +130,7 @@ class Entrada:
             if len(arg) == 0:
                 arg = 'Campo vazio'
             print('Dado inválido ->', arg)
-            return None    
+            return None
 
     def recebe_data(dt: str) -> str:
         """Recebe uma data no formato ddMMaaa ou dd/MM/aaaa
@@ -146,37 +142,36 @@ class Entrada:
             str: retorna uma data no formato dd/MM/aaaa
         """
         data: str = dt
-        padrao: str = "[0-9]{2}/[0-9]{2}/[0-9]{4}"        
+        padrao: str = "[0-9]{2}/[0-9]{2}/[0-9]{4}"
         esta_no_padrao: bool = re.findall(padrao, data)
         if esta_no_padrao:
             data_padronizada = re.search(padrao, data)
             Validar.data(data_padronizada.group())
-            return data_padronizada.group()            
+            return data_padronizada.group()
         else:
             if len(data) == 0:
                 data = 'Campo vazio'
             print('Data inválida ->', data)
             return None
 
+
 class Validar:
     def data(data: str) -> bool:
-        """Recebe uma data em string e verifica se é uma data válida        
-
+        """Recebe uma data em string e verifica se é uma data válida
         Args:
             data (str): data em string no formato dd/MM/YYYY
-
         Returns:
-            bool: Retorna True se for uma data válida e False caso seja 
+            bool: Retorna True se for uma data válida e False caso seja
             inválida
         """
         dia: int = int(data[0:2])
         mes: int = int(data[3:5])
         ano: int = int(data[6:])
-        anos: range = range(1900,2091)# 2091 exclusive
-        meses: range = range(1,13)# 13 exclusive
-        dias: range = range(1,32)# 32 exclusive
-        mes_com_trinta_um_dias: tuple = (1,3,5,7,8,10,12)
-        mes_com_trinta_dias: tuple = (4,6,9,11)
+        anos: range = range(1900, 2091)  # 2091 exclusive
+        meses: range = range(1, 13)  # 13 exclusive
+        dias: range = range(1, 32)  # 32 exclusive
+        mes_com_trinta_um_dias: tuple = (1, 3, 5, 7, 8, 10, 12)
+        mes_com_trinta_dias: tuple = (4, 6, 9, 11)
         mes_vinte_oito_ou_vinte_nove_dias: int = 2
         dia_valido = False
         mes_valido = False
@@ -187,17 +182,17 @@ class Validar:
                 raise
             # a partir daqui todos os anos são válidos
             ano_valido = True
-            if mes in mes_com_trinta_um_dias and dia <=31:
+            if mes in mes_com_trinta_um_dias and dia <= 31:
                 mes_valido = True
                 dia_valido = True
-            elif mes in mes_com_trinta_dias and dia <=30:
+            elif mes in mes_com_trinta_dias and dia <= 30:
                 mes_valido = True
                 dia_valido = True
             elif mes == mes_vinte_oito_ou_vinte_nove_dias:
                 mes_valido = True
-                if Validar.ano_bissexto(ano) and dia <=29:
+                if Validar.ano_bissexto(ano) and dia <= 29:
                     dia_valido = True
-                elif dia <=28:
+                elif dia <= 28:
                     dia_valido = True
                 else:
                     raise

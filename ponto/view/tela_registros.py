@@ -15,7 +15,8 @@ class TelaRegistros(Tela):
             matricula = int(input("Digite o número de sua matrícula: "))
             print(matricula)
             opcao = input(
-                "Deseja realizar outro registro?(S para sim ou enter para sair):"
+                "Deseja realizar outro registro?\
+                    (S para sim ou enter para sair):"
                 ).lower()
             if opcao != "s":
                 break

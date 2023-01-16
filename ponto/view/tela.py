@@ -13,7 +13,8 @@ class Tela:
 
     def escreve_titulo(self) -> str:
         self.clear()
-        largura_titulo: int = int(len(TITULO_PRINCIPAL)) + 4  # pega a largura do titulo
+        # pega a largura do titulo
+        largura_titulo: int = int(len(TITULO_PRINCIPAL)) + 4
         pc: str = "\u001b[32m\U00002721\u001b[m"  # emoji de um pc
         print(pc * (largura_titulo))  # desenha borda superior
         print(pc, TITULO_PRINCIPAL, pc)  # desenha titulo e bordas laterais

@@ -1,5 +1,6 @@
 from model.utilitarios import Entrada
 
+
 class Colaborador:
     def __init__(self, matricula: str, cpf: str, pispasep: str, nome: str,
                  cargo: str, admissao: str) -> None:
@@ -59,26 +60,26 @@ class Colaborador:
         self._admissao = Entrada.recebe_data(admissao)
 
     def dados_incompletos(self) -> list:
-        """ Verifica se há atributos com valor None e os inclui em uma lista de String.
-            Caso contrário retorna None:
+        """ Verifica se há atributos com valor None e os inclui em uma lista
+        de String. Caso contrário retorna None:
 
         Returns:
-            list: or None: 
+            list: or None:
         """
         dados_incompletos: list = []
-        if self.matricula == None:
+        if self.matricula is None:
             dados_incompletos.append('matricula')
-        if self.cpf == None:
+        if self.cpf is None:
             dados_incompletos.append('cpf')
-        if self.pispasep == None:
+        if self.pispasep is None:
             dados_incompletos.append('pispasep')
-        if self.nome == None:
+        if self.nome is None:
             dados_incompletos.append('nome')
-        if self.cargo == None:
+        if self.cargo is None:
             dados_incompletos.append('cargo')
-        if self.admissao == None:
+        if self.admissao is None:
             dados_incompletos.append('admissao')
-        if(len(dados_incompletos) > 0):
+        if len(dados_incompletos) > 0:
             return dados_incompletos
         else:
             return None
