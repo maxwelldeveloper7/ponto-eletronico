@@ -1,8 +1,10 @@
 import re
+from typing import Optional
 from validate_docbr import CPF, PIS
 
 
 class Entrada:
+    @staticmethod
     def numero_inteiro(valor: str) -> int:
         """ Remove caracteres que não sejam dígitos
 
@@ -23,7 +25,7 @@ class Entrada:
             return digitos
         except Exception:
             return None
-
+    @staticmethod
     def recebe_matricula(arg: str) -> str:
         """ Recebe um número de matrícula pelo teclado e verifica se possui
             apenas digitos. Caso possua caracteres alfa os remove.
@@ -53,7 +55,7 @@ class Entrada:
                 arg = 'Campo vazio'
             print('Matrícula inválida ->', arg)
             return None
-
+    @staticmethod
     def recebe_cpf(arg: str) -> str:
         """Recebe um CPF pelo teclado e verifica se possui 11 dígitos e se é
             válido.
@@ -82,7 +84,7 @@ class Entrada:
                 arg = 'Campo vazio'
             print('CPF inválido ->', arg)
             return None
-
+    @staticmethod
     def recebe_pis_pasep(arg: str) -> str:
         """ Recebe um PIS/PASEP pelo teclado e verifica se possui 11 dígitos
             e se é válido.
@@ -156,6 +158,7 @@ class Entrada:
 
 
 class Validar:
+    @staticmethod
     def data(data: str) -> bool:
         """Recebe uma data em string e verifica se é uma data válida
         Args:
@@ -202,6 +205,7 @@ class Validar:
             print('Data inválida ->', data)
         return ano_valido and mes_valido and dia_valido
 
+    @staticmethod
     def ano_bissexto(ano: int) -> bool:
         """ Verifica se um ano é bissexto
 
