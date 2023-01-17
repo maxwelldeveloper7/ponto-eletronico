@@ -114,6 +114,7 @@ class Entrada:
             print('PIS/PASEP inválido ->', arg)
             return None
 
+    @staticmethod
     def recebe_nome(arg: str) -> str:
         """Remove dígitos do nome completo
 
@@ -137,7 +138,8 @@ class Entrada:
             print('Dado inválido ->', arg)
             return None
 
-    def recebe_data(dt: str) -> str:
+    @staticmethod
+    def recebe_data(arg: str) -> str:
         """Recebe uma data no formato ddMMaaa ou dd/MM/aaaa
 
         Args:
@@ -146,7 +148,7 @@ class Entrada:
         Returns:
             str: retorna uma data no formato dd/MM/aaaa
         """
-        data: str = dt
+        data: str = arg
         padrao: str = "[0-9]{2}/[0-9]{2}/[0-9]{4}"
         esta_no_padrao: bool = re.findall(padrao, data)
         if esta_no_padrao:
@@ -218,7 +220,4 @@ class Validar:
         Returns:
             bool: retorna True se verdadeiro ou False caso não seja bissexto
         """
-        if (ano % 4 == 0 and ano % 100 != 0) or ano % 400 == 0:
-            return True
-        else:
-            return False
+        return (ano % 4 == 0 and ano % 100 != 0) or ano % 400 == 0
