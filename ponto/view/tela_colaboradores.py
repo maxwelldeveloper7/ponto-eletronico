@@ -1,3 +1,4 @@
+"""Este módulo contém Classe Tela de Colaboradores e seus métodos."""
 import re
 
 from model.colaborador import Colaborador
@@ -5,13 +6,12 @@ from view.tela import Tela
 
 
 class TelaColaboradores(Tela):
-    def __init__(self) -> None:
-        super().__init__()
-
+    """Cria uma tela de cadastro de colaboradores"""
     def exibir_menu(self) -> None:
+        """Exibe cabeçalho e tela de menu"""
         opcao: int = 0
         mensagem: str = ""
-        while (True):
+        while True:
             # Menu
             self.escreve_titulo()
             print("Colaboradores\n")
@@ -45,6 +45,7 @@ class TelaColaboradores(Tela):
                 mensagem = "Opção inválida!!!\n"
 
     def cadastro(self) -> None:
+        """Exibe tela de cadastro de colaboradores"""
         self.escreve_titulo()
         print("Novo colaborador\n")
         matricula: str = input("Matrícula: ")

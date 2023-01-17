@@ -11,7 +11,8 @@ class Entrada:
             valor (str): recebe dados digitados pelo usuário
 
         Returns:
-            int: retona um número inteiro e None caso o campo filtro não esteja vazio
+            int: retona um número inteiro e None caso o campo filtro não esteja
+        vazio
         """
         # filtra o valor informado e remove tudo que não for dígito
         filtro: str = ''.join([i for i in valor if i.isdigit()])

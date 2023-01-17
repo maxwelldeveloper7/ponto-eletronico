@@ -1,3 +1,4 @@
+"""Este módulo contém classe e métodos da tela de cadastros"""
 import re
 
 from view.tela import Tela
@@ -5,13 +6,12 @@ from view.tela_colaboradores import TelaColaboradores
 
 
 class TelaCadastros(Tela):
-    def __init__(self) -> None:
-        super().__init__()
-
+    """Desenha na tela uma tela de menu de Cadastros"""
     def exibir_menu(self) -> None:
+        """Exibe cabeçalho e tela de menu"""
         opcao: int = 0
         mensagem: str = ""
-        while (True):
+        while True:
             # Menu
             self.escreve_titulo()
             print("Cadastros\n")
@@ -31,11 +31,15 @@ class TelaCadastros(Tela):
                 mensagem: str = ""
                 opcao = int(entrada)
                 if opcao == 1:
-                    tela_colaboradores = TelaColaboradores()
-                    tela_colaboradores.exibir_menu()
+                    self.abre_tela_colaboradores()
                 elif opcao == 2:
                     continue
                 elif opcao == 3:
                     break
             else:
                 mensagem = "Opção inválida!!!\n"
+
+    def abre_tela_colaboradores(self) -> None:
+        """Abre a tela de Colaboradores"""
+        tela_colaboradores = TelaColaboradores()
+        tela_colaboradores.exibir_menu()
