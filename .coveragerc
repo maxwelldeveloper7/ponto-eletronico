@@ -15,5 +15,6 @@ exclude_lines =
     class TelaColaboradores
     class TelaPrincipal
     class TelaRegistros
+    class Colaborador
 [html]
 directory = coverage_relatorio_html
