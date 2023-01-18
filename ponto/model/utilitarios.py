@@ -50,8 +50,7 @@ class Entrada:
                 # com zeros a esquerda
                 return str("{:06d}".format(int(resposta.group())))
             # se não estiver dentro do padrão lança exceçao e retorna None
-            else:
-                raise
+            raise
         except Exception:
             if len(arg) == 0:
                 arg = 'Campo vazio'
@@ -78,10 +77,7 @@ class Entrada:
                 validador = CPF()
                 if validador.validate(documento):
                     return documento
-                else:
-                    raise
-            else:
-                raise
+            raise
         except Exception:
             if len(arg) == 0:
                 arg = 'Campo vazio'
@@ -105,10 +101,7 @@ class Entrada:
                 validador = PIS()
                 if validador.validate(documento):
                     return documento
-                else:
-                    raise
-            else:
-                raise
+            raise
         except Exception:
             if len(arg) == 0:
                 arg = 'Campo vazio'
@@ -131,8 +124,7 @@ class Entrada:
             nome = nome.lower()
             if len(nome) > 1:
                 return nome
-            else:
-                raise
+            raise
         except Exception:
             if len(arg) == 0:
                 arg = 'Campo vazio'
@@ -156,11 +148,10 @@ class Entrada:
             data_padronizada = re.search(padrao, data)
             Validar.data(data_padronizada.group())
             return data_padronizada.group()
-        else:
-            if len(data) == 0:
-                data = 'Campo vazio'
-            print('Data inválida ->', data)
-            return None
+        if len(data) == 0:
+            data = 'Campo vazio'
+        print('Data inválida ->', data)
+        return None
 
 
 class Validar:

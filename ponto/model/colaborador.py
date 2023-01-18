@@ -1,9 +1,12 @@
+"""Este arquivo contém a classe Colaborador"""
 from model.utilitarios import Entrada
 
 
 class Colaborador:
+    """Classe Colaborador"""
     def __init__(self, matricula: str, cpf: str, pispasep: str, nome: str,
                  cargo: str, admissao: str) -> None:
+        """Método construtor"""
         self._matricula = Entrada.recebe_matricula(matricula)
         self._cpf = Entrada.recebe_cpf(cpf)
         self._pispasep = Entrada.recebe_pis_pasep(pispasep)
@@ -13,26 +16,32 @@ class Colaborador:
 
     @property
     def matricula(self):
+        """Retorna uma matrícula"""
         return self._matricula
 
     @property
     def cpf(self):
+        """Retorna um CPF"""
         return self._cpf
 
     @property
     def pispasep(self):
+        """Retorna um PIS/PASEP"""
         return self._pispasep
 
     @property
     def nome(self):
+        """Retorna um Nome"""
         return self._nome
 
     @property
     def cargo(self):
+        """Retorna um Cargo"""
         return self._cargo
 
     @property
     def admissao(self):
+        """Retorna uma data de admissão"""
         return self._admissao
 
     @matricula.setter
@@ -66,27 +75,34 @@ class Colaborador:
         Returns:
             list: or None:
         """
-        dados_incompletos: list = []
+        incompletos: list = []
         if self.matricula is None:
-            dados_incompletos.append('matricula')
+            incompletos.append('matricula')
         if self.cpf is None:
-            dados_incompletos.append('cpf')
+            incompletos.append('cpf')
         if self.pispasep is None:
-            dados_incompletos.append('pispasep')
+            incompletos.append('pispasep')
         if self.nome is None:
-            dados_incompletos.append('nome')
+            incompletos.append('nome')
         if self.cargo is None:
-            dados_incompletos.append('cargo')
+            incompletos.append('cargo')
         if self.admissao is None:
-            dados_incompletos.append('admissao')
-        if len(dados_incompletos) > 0:
-            return dados_incompletos
-        else:
-            return None
+            incompletos.append('admissao')
+        if len(incompletos) > 0:
+            return incompletos
+        return None
 
     def __str__(self) -> str:
-        return 'Matrícula: {}\nCPF: {}\nPIS/PASEP: {}\nNome: {}\nCargo: {}\
-            \nAdmissão: {}\nCampos Vazios: {}'.format(
-            self.matricula, self.cpf, self.pispasep, self.nome,
-            self.cargo, self.admissao, self.dados_incompletos()
-        )
+        # return 'Matrícula: {}\nCPF: {}\nPIS/PASEP: {}\nNome: {}\nCargo: {}\
+        #     \nAdmissão: {}\nCampos Vazios: {}'.format(
+        #     self.matricula, self.cpf, self.pispasep, self.nome,
+        #     self.cargo, self.admissao, self.dados_incompletos()
+        # )
+        colaborador_str = ''
+        colaborador_str += f'Matrícula: {self.matricula}\n'
+        colaborador_str += f'CPF: {self.cpf}\n'
+        colaborador_str += f'PIS/PASEP: {self.pispasep}\n'
+        colaborador_str += f'Nome: {self.nome}\n'
+        colaborador_str += f'Cargo: {self.cargo}\n'
+        colaborador_str += f'Data de admissão: {self.admissao}\n'
+        return colaborador_str
