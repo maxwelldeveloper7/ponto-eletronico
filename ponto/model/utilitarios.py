@@ -3,6 +3,9 @@ from validate_docbr import CPF, PIS
 
 
 class Entrada:
+    """Classe Entrada - recebe dados, tratamento de exceções,
+    e retorna dados devidamente tratados ou None
+    """
     @staticmethod
     def numero_inteiro(valor: str) -> int:
         """ Remove caracteres que não sejam dígitos
@@ -20,12 +23,12 @@ class Entrada:
         try:
             # dispara exceção caso esteja vazio
             if len(filtro) == 0:
-                raise ValueError(valor)
+                raise ValueError
             digitos = int(filtro)
             return digitos
-        except Exception:
+        except ValueError:
             valor = "''"
-            print('Não há dígitos ->', valor)
+            print('Campo vazio ->', valor)
             return None
 
     @staticmethod
@@ -45,14 +48,15 @@ class Entrada:
                 resposta = re.search(padrao, matricula)
                 # Se a matrícula for 0 lança uma exceção e retorna None
                 if int(resposta.group()) == 0:
-                    raise
+                    raise ValueError
                 # Resposta da busca convertida em inteiro para formatar
                 # matrícula
                 # com zeros a esquerda
-                return str("{:06d}".format(int(resposta.group())))
+                # return str("{:06d}".format(int(resposta.group())))
+                return f'{int(resposta.group()):06d}'
             # se não estiver dentro do padrão lança exceçao e retorna None
-            raise
-        except Exception:
+            raise ValueError
+        except ValueError:
             if len(arg) == 0:
                 arg = 'Campo vazio'
             print('Matrícula inválida ->', arg)
@@ -78,8 +82,8 @@ class Entrada:
                 validador = CPF()
                 if validador.validate(documento):
                     return documento
-            raise
-        except Exception:
+            raise ValueError
+        except ValueError:
             if len(arg) == 0:
                 arg = 'Campo vazio'
             print('CPF inválido ->', arg)
@@ -102,8 +106,8 @@ class Entrada:
                 validador = PIS()
                 if validador.validate(documento):
                     return documento
-            raise
-        except Exception:
+            raise ValueError
+        except ValueError:
             if len(arg) == 0:
                 arg = 'Campo vazio'
             print('PIS/PASEP inválido ->', arg)
@@ -125,8 +129,8 @@ class Entrada:
             nome = nome.lower()
             if len(nome) > 1:
                 return nome
-            raise
-        except Exception:
+            raise ValueError
+        except ValueError:
             if len(arg) == 0:
                 arg = 'Campo vazio'
             print('Dado inválido ->', arg)
@@ -156,6 +160,7 @@ class Entrada:
 
 
 class Validar:
+    """Realiza validações de datas"""
     @staticmethod
     def data(data: str) -> bool:
         """Recebe uma data em string e verifica se é uma data válida
@@ -180,7 +185,7 @@ class Validar:
         try:
             # testa se dia, mês e ano estão dentro do padrão
             if (dia not in dias or mes not in meses or ano not in anos):
-                raise
+                raise ValueError
             # a partir daqui todos os anos são válidos
             ano_valido = True
             if mes in mes_com_trinta_um_dias and dia <= 31:
@@ -196,10 +201,10 @@ class Validar:
                 elif dia <= 28:
                     dia_valido = True
                 else:
-                    raise
+                    raise ValueError
             else:
-                raise
-        except Exception:
+                raise ValueError
+        except ValueError:
             print('Data inválida ->', data)
         return ano_valido and mes_valido and dia_valido
 
