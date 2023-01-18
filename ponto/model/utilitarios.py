@@ -20,10 +20,11 @@ class Entrada:
         try:
             # dispara exceção caso esteja vazio
             if len(filtro) == 0:
-                raise
+                raise ValueError(valor)
             digitos = int(filtro)
             return digitos
         except Exception:
+            valor = "''"
             print('Não há dígitos ->', valor)
             return None
 
