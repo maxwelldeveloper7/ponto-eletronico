@@ -1,4 +1,5 @@
 import re
+from typing import Any, List
 from validate_docbr import CPF, PIS
 
 
@@ -43,7 +44,7 @@ class Entrada:
         matricula: str = str(Entrada.numero_inteiro(arg))
         try:
             padrao: str = "[0-9]{1,6}"
-            matricula_valida: bool = re.findall(padrao, matricula)
+            matricula_valida: List[Any] = re.findall(padrao, matricula)
             if matricula_valida:
                 resposta = re.search(padrao, matricula)
                 # Se a matrícula for 0 lança uma exceção e retorna None
@@ -148,7 +149,7 @@ class Entrada:
         """
         data: str = arg
         padrao: str = "[0-9]{2}/[0-9]{2}/[0-9]{4}"
-        esta_no_padrao: bool = re.findall(padrao, data)
+        esta_no_padrao: List[Any] = re.findall(padrao, data)
         if esta_no_padrao:
             data_padronizada = re.search(padrao, data)
             Validar.data(data_padronizada.group())

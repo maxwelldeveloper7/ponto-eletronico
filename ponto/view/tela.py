@@ -21,6 +21,7 @@ class Tela:
         largura_titulo: int = int(len(TITULO_PRINCIPAL)) + 4
         emoji: str = "\u001b[32m\U00002721\u001b[m"  # emoji de um pc
         print(emoji * (largura_titulo))  # desenha borda superior
-        print(emoji, TITULO_PRINCIPAL, emoji)  # desenha titulo e bordas laterais
+        # desenha titulo e bordas laterais
+        print(emoji, TITULO_PRINCIPAL, emoji)
         print(emoji * (largura_titulo), "\n")  # desenha borda inferior
         # print("\u001b[32m\U00002721\u001b[m")
