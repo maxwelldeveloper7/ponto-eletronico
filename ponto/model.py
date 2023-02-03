@@ -69,11 +69,10 @@ class Colaborador:
         self._admissao = Entrada.recebe_data(admissao)
 
     def verifica_dados_incompletos(self) -> list:
-        """ Verifica se há atributos com valor None e os inclui em uma lista
-        de String. Caso contrário retorna None:
-
+        """ Verifica se há atributos com valor None e retorna uma lista
+        com os dados imcompletos
         Returns:
-            list: or None:
+            list:
         """
         dados_incompletos: list = []
         if self.matricula is None:
