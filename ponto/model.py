@@ -89,6 +89,10 @@ class Colaborador:
             dados_incompletos.append('admissao')
         return dados_incompletos
 
+    def dados_incompletos(self) -> bool:
+        """Verifica de há se a campos incompletos na lista"""
+        return len(self.verifica_dados_incompletos()) != 0
+
     def __str__(self) -> str:
         # return 'Matrícula: {}\nCPF: {}\nPIS/PASEP: {}\nNome: {}\nCargo: {}\
         #     \nAdmissão: {}\nCampos Vazios: {}'.format(
