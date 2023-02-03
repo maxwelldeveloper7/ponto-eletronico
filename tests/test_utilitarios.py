@@ -1,8 +1,8 @@
 import pytest
 
-from ponto.model.utilitarios import Entrada
+from ponto.utilitarios import Entrada
 
-from ponto.model.utilitarios import Validar
+from ponto.utilitarios import Validar
 
 
 class TestRecebeData:

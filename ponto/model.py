@@ -1,5 +1,5 @@
-"""Este arquivo contém a classe Colaborador"""
-from model.utilitarios import Entrada
+"""Este módulo contém a classe Colaborador"""
+from utilitarios import Entrada
 
 
 class Colaborador:

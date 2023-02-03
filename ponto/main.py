@@ -1,5 +1,5 @@
 """Módulo Principal"""
-from view.tela_principal import TelaPrincipal
+from view import TelaPrincipal
 
 
 principal = TelaPrincipal()
