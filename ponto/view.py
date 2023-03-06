@@ -152,6 +152,12 @@ class TelaColaboradores(Tela):
         """Exibe tela de cadastro de colaboradores"""
         self.escreve_titulo()
         print("Novo colaborador\n")
+        ''' lista de dados incompletos que serão utilizados num loop 
+            e finalizará assim que essa lista seja esvaziada a media
+            que todos os dados forem informados
+        '''
+        campos_incompletos = ['matricula', 'cpf', 'pispasep', 'nome', 'cargo',
+                              'admissao']
         matricula: str = input("Matrícula: ")
         cpf: str = input("CPF: ")
         pis_pasep: str = input("PIS/PASEP: ")
