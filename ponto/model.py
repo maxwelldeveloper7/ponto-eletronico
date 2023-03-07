@@ -5,7 +5,7 @@ from utilitarios import Entrada
 class Colaborador:
     """Classe Colaborador"""
     def __init__(self, matricula: str, cpf: str, pispasep: str, nome: str,
-                 cargo: str, admissao: str) -> None:
+                 cargo: str, admissao: str, ativo: bool = True) -> None:
         """Método construtor"""
         self._matricula = Entrada.recebe_matricula(matricula)
         self._cpf = Entrada.recebe_cpf(cpf)
@@ -13,6 +13,7 @@ class Colaborador:
         self._nome = Entrada.recebe_nome(nome)
         self._cargo = Entrada.recebe_nome(cargo)
         self._admissao = Entrada.recebe_data(admissao)
+        self._ativo = ativo
 
     @property
     def matricula(self):
@@ -44,6 +45,14 @@ class Colaborador:
         """Retorna uma data de admissão"""
         return self._admissao
 
+    @property
+    def ativo(self):
+        """Regorna se o colaborador é ativo"""
+        if self._ativo:
+            return 'Ativo'
+        else:
+            return 'Inativo'
+
     @matricula.setter
     def matricula(self, matricula):
         self._matricula = Entrada.recebe_matricula(matricula)
@@ -67,6 +76,10 @@ class Colaborador:
     @admissao.setter
     def admissao(self, admissao):
         self._admissao = Entrada.recebe_data(admissao)
+
+    @ativo.setter
+    def ativo(self, ativo):
+        self._ativo = ativo
 
     def mostra_dados_incompletos(self) -> list:
         """ Verifica se há atributos com valor None e retorna uma lista
@@ -106,4 +119,5 @@ class Colaborador:
         colaborador_str += f'Nome: {self.nome}\n'
         colaborador_str += f'Cargo: {self.cargo}\n'
         colaborador_str += f'Data de admissão: {self.admissao}\n'
+        colaborador_str += f'{self.ativo}\n'
         return colaborador_str
