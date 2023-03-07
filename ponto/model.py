@@ -68,7 +68,7 @@ class Colaborador:
     def admissao(self, admissao):
         self._admissao = Entrada.recebe_data(admissao)
 
-    def verifica_dados_incompletos(self) -> list:
+    def mostra_dados_incompletos(self) -> list:
         """ Verifica se há atributos com valor None e retorna uma lista
         com os dados imcompletos
         Returns:
@@ -89,9 +89,9 @@ class Colaborador:
             dados_incompletos.append('admissao')
         return dados_incompletos
 
-    def dados_incompletos(self) -> bool:
+    def dados_completos(self) -> bool:
         """Verifica de há se a campos incompletos na lista"""
-        return len(self.verifica_dados_incompletos()) != 0
+        return len(self.mostra_dados_incompletos()) == 0
 
     def __str__(self) -> str:
         # return 'Matrícula: {}\nCPF: {}\nPIS/PASEP: {}\nNome: {}\nCargo: {}\

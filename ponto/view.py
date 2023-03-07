@@ -173,10 +173,12 @@ class TelaColaboradores(Tela):
                 data_admissao: str = input("Data de Admissão(dd/mm/aaaa): ")
             colaborador: Colaborador = Colaborador(matricula, cpf, pis_pasep,
                                                    nome, cargo, data_admissao)
-            campos_vazios = colaborador.verifica_dados_incompletos()
-        print()
-        print(colaborador, "\n")
-        input("pressione qualquer tecla para voltar")
+            campos_vazios = colaborador.mostra_dados_incompletos()
+            if colaborador.dados_completos():
+                print()
+                print(colaborador, "\n")
+                print("Colaborador cadastrado com sucesso!")
+                input("pressione qualquer tecla para voltar")
 
 class TelaRegistros(Tela):
     """Exibe tela de registros"""
