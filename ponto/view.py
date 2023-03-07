@@ -158,14 +158,22 @@ class TelaColaboradores(Tela):
         '''
         campos_vazios = ['matricula', 'cpf', 'pispasep', 'nome', 'cargo',
                               'admissao']
-        matricula: str = input("Matrícula: ")
-        cpf: str = input("CPF: ")
-        pis_pasep: str = input("PIS/PASEP: ")
-        nome: str = input("Nome Completo: ")
-        cargo: str = input("Cargo: ")
-        data_admissao: str = input("Data de Admissão(dd/mm/aaaa): ")
-        colaborador: Colaborador = Colaborador(matricula, cpf, pis_pasep, nome,
-                                               cargo, data_admissao)
+        while len(campos_vazios) != 0:
+            if 'matricula' in campos_vazios:
+                matricula: str = input("Matrícula: ")
+            if 'cpf' in campos_vazios:
+                cpf: str = input("CPF: ")
+            if 'pispasep' in campos_vazios:
+                pis_pasep: str = input("PIS/PASEP: ")
+            if 'nome' in campos_vazios:
+                nome: str = input("Nome Completo: ")
+            if 'cargo' in campos_vazios:
+                cargo: str = input("Cargo: ")
+            if 'admissao' in campos_vazios:
+                data_admissao: str = input("Data de Admissão(dd/mm/aaaa): ")
+            colaborador: Colaborador = Colaborador(matricula, cpf, pis_pasep,
+                                                   nome, cargo, data_admissao)
+            campos_vazios = colaborador.verifica_dados_incompletos()
         print()
         print(colaborador, "\n")
         input("pressione qualquer tecla para voltar")
