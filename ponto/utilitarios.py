@@ -28,8 +28,8 @@ class Entrada:
             digitos = int(filtro)
             return digitos
         except ValueError:
-            valor = "''"
-            print('Campo vazio ->', valor)
+            # valor = "''"
+            # print('Campo vazio ->', valor)
             return None
 
     @staticmethod
