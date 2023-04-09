@@ -74,7 +74,7 @@ class Entrada:
         Returns:
             str: CPF válido ou None caso seja inválido
         """
-        # recebe filtra apenas dígitos
+        # filtra apenas dígitos
         cpf: str = ''.join([i for i in arg if i.isdigit()])
         try:
             if len(cpf) == 11:
@@ -99,7 +99,8 @@ class Entrada:
         Returns:
             str: PIS/PASEP válido ou None caso seja inválido
         """
-        pis_pasep: str = arg
+        # filta apenas digitos
+        pis_pasep: str = ''.join([i for i in arg if i.isdigit()])
         try:
             if len(pis_pasep) == 11:
                 padrao: str = "[0-9]{11}"
