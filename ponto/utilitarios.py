@@ -74,8 +74,8 @@ class Entrada:
         Returns:
             str: CPF válido ou None caso seja inválido
         """
-
-        cpf: str = arg
+        # recebe filtra apenas dígitos
+        cpf: str = ''.join([i for i in arg if i.isdigit()])
         try:
             if len(cpf) == 11:
                 padrao: str = "[0-9]{11}"
