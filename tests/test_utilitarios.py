@@ -63,6 +63,12 @@ class TestRecebePisPasep:
         esperado = '26621161644'
         resultado = Entrada.recebe_pis_pasep(pispasep)  # ação
         assert resultado == esperado  # desfecho
+        
+    def test_quando_o_pispase_for_266a21161644_deve_retornar_26621161644(self):
+        pispasep = '266a21161644'  # contexto
+        esperado = '26621161644'
+        resultado = Entrada.recebe_pis_pasep(pispasep)  # ação
+        assert resultado == esperado  # desfecho
 
 
 class TestRecebeCpf:
