@@ -89,6 +89,12 @@ class TestRecebeCpf:
         esperado = '84981191030'
         resultado = Entrada.recebe_cpf(cpf)  # ação
         assert resultado == esperado  # desfecho
+    
+    def test_quando_o_cpf_for_84981a191030_deve_retornar_84981191030(self):
+        cpf = '84981a191030'  # contexto
+        esperado = '84981191030'
+        resultado = Entrada.recebe_cpf(cpf)  # ação
+        assert resultado == esperado  # desfecho
 
 
 class TestRecebeMatricula:
