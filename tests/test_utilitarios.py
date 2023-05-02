@@ -211,3 +211,9 @@ class TestData:
         esperado = True
         resultado = Validar.data(data)  # ação
         assert resultado == esperado
+
+    def test_formatar_nome(self):
+        assert Entrada.formatar_nome('MAXWELL DE OLIVEIRA CHAVES') == 'Maxwell de Oliveira Chaves'
+        assert Entrada.formatar_nome('maria das virgens') == 'Maria das Virgens'
+        assert Entrada.formatar_nome('jose do patrocinio') == 'Jose do Patrocinio'
+        assert Entrada.formatar_nome('JOAO DAS NEVES') == 'Joao das Neves'
