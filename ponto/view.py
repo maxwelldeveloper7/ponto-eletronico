@@ -6,7 +6,8 @@ from model import Colaborador
 
 class Tela:
     """Classe Tela"""
-    def clear(self) -> None:
+    @staticmethod
+    def clear() -> None:
         """Limpa o terminal"""
         os.system('clear')
         command: str = 'clear'
@@ -14,9 +15,10 @@ class Tela:
             command = 'cls'
         os.system(command)
 
-    def escreve_titulo(self) -> str:
+    @staticmethod
+    def escreve_titulo() -> str:
         """Escreve o cabeçalho da tela com título"""
-        self.clear()
+        Tela.clear()
         # pega a largura do titulo
         largura_titulo: int = int(len(TITULO_PRINCIPAL)) + 4
         emoji: str = "\u001b[32m\U00002721\u001b[m"  # emoji de um pc
@@ -60,7 +62,8 @@ class TelaPrincipal(Tela):
             else:
                 mensagem = "Opção inválida!!!\n"
 
-    def abre_tela_de_registros(self) -> None:
+    @staticmethod
+    def abre_tela_de_registros() -> None:
         """Instancia tela de registros e exibe o menu"""
         tela_registros = TelaRegistros()
         tela_registros.exibir_menu()
@@ -104,7 +107,8 @@ class TelaCadastros(Tela):
             else:
                 mensagem = "Opção inválida!!!\n"
 
-    def abre_tela_colaboradores(self) -> None:
+    @staticmethod
+    def abre_tela_colaboradores() -> None:
         """Abre a tela de Colaboradores"""
         tela_colaboradores = TelaColaboradores()
         tela_colaboradores.exibir_menu()
