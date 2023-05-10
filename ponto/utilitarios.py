@@ -130,7 +130,7 @@ class Entrada:
             nome: str = ''.join([i for i in entrada if not i.isdigit()])
             nome = nome.lower()
             if len(nome) > 1:
-                return nome
+                return Entrada.formatar_nome(nome)
             raise ValueError
         except ValueError:
             if len(arg) == 0:
