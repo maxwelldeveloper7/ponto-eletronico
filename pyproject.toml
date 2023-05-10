@@ -10,6 +10,8 @@ packages = [{include = "ponto_eletronico"}]
 python = "^3.8.10"
 validate-docbr = "^1.10.0"
 pytest-cov = "^4.0.0"
+emoji = "^2.2.0"
+termcolor = "^2.3.0"
 
 
 [tool.poetry.group.dev.dependencies]
